@@ -77,13 +77,13 @@ void initCAN_1 (void) {
 void TransmitMsg (void) {
   uint8_t	i;
                                    /* Assumption:  Message buffer CODE is INACTIVE */
-  const uint8_t TxData[] = {"Hello"};  /* Transmit string*/
+  uint16_t TxData = 255;  /* Transmit string*/
   CAN_1.BUF[0].CS.B.IDE = 0;           /* Use standard ID length */
   CAN_1.BUF[0].ID.B.STD_ID = 555;      /* Transmit ID is 555 */
   CAN_1.BUF[0].CS.B.RTR = 0;           /* Data frame, not remote Tx request frame */
   CAN_1.BUF[0].CS.B.LENGTH = sizeof(TxData) -1 ; /* # bytes to transmit w/o null */
   for (i=0; i<sizeof(TxData); i++) {
-    CAN_1.BUF[0].DATA.B[i] = TxData[i];      /* Data to be transmitted */
+    CAN_1.BUF[0].DATA.H[i] = TxData;      /* Data to be transmitted */
   }
   CAN_1.BUF[0].CS.B.SRR = 1;           /* Tx frame (not req'd for standard frame)*/
   CAN_1.BUF[0].CS.B.CODE =0xC;         /* Activate msg. buf. to transmit data frame */ 

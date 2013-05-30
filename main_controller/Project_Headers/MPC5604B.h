@@ -9,43 +9,48 @@
  * 
  * COPYRIGHT   :(c) 2009, Freescale & STMicroelectronics 
  * 
- * VERSION     : 01.00 
+ * VERSION     : 01.02 
  * DATE        : 08 MAY 2009 
  * AUTHOR      : b04629 
  * HISTORY     : Original source taken from jdp_0100.h. 
- *               Updated to be compatable with MPC5604B Mask ID 
- *               0M27V and MPC5604B Reference Manual Rev 3 Draft A 
- *               10 Mar 2009
+ *               Updated to be compatable with 
+ *               - MPC5604B Mask ID 0M27V 
+ *               - MPC5604B Reference Manual Rev 3 Draft A
+ *               - SPC560B4 Mask ID FB50X20B
+ *               - SPC560B4 Reference Manual Rev 3 Draft A
  *
- ******************************************************************/
-
-/*>>>>NOTE! this file is auto-generated please do not edit it!<<<<*/
-
+ ******************************************************************/  
+    
+/*>>>>NOTE! this file is auto-generated please do not edit it!<<<<*/ 
+    
 /***************************************************************** 
 * Example instantiation and use:            
 *                                           
 *  <MODULE>.<REGISTER>.B.<BIT> = 1;         
 *  <MODULE>.<REGISTER>.R       = 0x10000000;
 *                                           
-******************************************************************/
-
-#ifndef _JDP_H_
-#define _JDP_H_
-
+******************************************************************/ 
+    
+#ifndef _MPC5604B_H_
+#define _MPC5604B_H_
+    
 #include "typedefs.h"
-
+    
 #ifdef  __cplusplus
 extern "C" {
-#endif
-
+    
+#endif  /* 
+ */
+    
 #ifdef __MWERKS__
 #pragma push
 #pragma ANSI_strict off
-#endif
+#endif  /* 
+ */
 /****************************************************************************/
 /*                          MODULE : ADC                                   */
 /****************************************************************************/
-    struct ADC_tag {
+        struct ADC_tag {
 
         union {
             vuint32_t R;
@@ -84,12 +89,12 @@ extern "C" {
                 vuint32_t CHADDR:7;
                   vuint32_t:3;
                 vuint32_t ACK0:1;
-                  vuint32_t:3;
+                  vuint32_t:2;
                 vuint32_t ADCSTATUS:3;
             } B;
         } MSR;                  /* MAIN STATUS REGISTER */
 
-        int32_t ADC_reserved1[2];       /* (0x00F - 0x008)/4 = 0x02 */
+        int32_t ADC_reserved1[2];       /* (0x010 - 0x008)/4 = 0x02 */
 
         union {
             vuint32_t R;
@@ -221,7 +226,7 @@ extern "C" {
             } B;
         } WTIMR;                /* WATCHDOG INTERRUPT MASK REGISTER */
 
-        int32_t ADC_reserved2[5];       /* (0x04F - 0x038)/4 = 0x05 */
+        int32_t ADC_reserved2[6];       /* (0x050 - 0x038)/4 = 0x06 */
 
         union {
             vuint32_t R;
@@ -643,21 +648,30 @@ extern "C" {
     struct CGM_tag {
 
         /* The CGM provides a unified register interface, enabling access to 
-           all clock sources:
-           
-           Base Address | Clock Sources
-           -----------------------------
-           0xC3FE0000   | FXOSC_CTL
-           ----------   | Reserved
-           0xC3FE0040   | SXOSC_CTL
-           0xC3FE0060   | FIRC_CTL
-           0xC3FE0080   | SIRC_CTL
-           0xC3FE00A0   | FMPLL_0
-           ----------   | Reserved 
-           0xC3FE0100   | CMU_0
-           
-         */
 
+           all clock sources:
+
+           Base Address | Clock Sources
+
+           -----------------------------
+
+           0xC3FE0000   | FXOSC_CTL
+
+           ----------   | Reserved
+
+           0xC3FE0040   | SXOSC_CTL
+
+           0xC3FE0060   | FIRC_CTL
+
+           0xC3FE0080   | SIRC_CTL
+
+           0xC3FE00A0   | FMPLL_0
+
+           ----------   | Reserved 
+
+           0xC3FE0100   | CMU_0
+
+         */
     /************************************/
         /* FXOSC_CTL @ CGM base address + 0x0000 */
     /************************************/
@@ -1409,24 +1423,24 @@ extern "C" {
         union {
             vuint32_t R;
             struct {
-                vuint32_t:8;
-                vuint32_t CADR:24;
+                vuint32_t:16;
+                vuint32_t CADR:16;
             } B;
         } CADR;                 /* Channel A Data Register */
 
         union {
             vuint32_t R;
             struct {
-                vuint32_t:8;
-                vuint32_t CBDR:24;
+                vuint32_t:16;
+                vuint32_t CBDR:16;
             } B;
         } CBDR;                 /* Channel B Data Register */
 
         union {
             vuint32_t R;
             struct {
-                vuint32_t:8;
-                vuint32_t CCNTR:24;
+                vuint32_t:16;
+                vuint32_t CCNTR:16;
             } B;
         } CCNTR;                /* Channel Counter Register */
 
@@ -2086,220 +2100,206 @@ extern "C" {
 
     struct LINFLEX_tag {
 
-        int16_t LINFLEX_reserved1;
-
         union {
-            vuint16_t R;
+            vuint32_t R;
             struct {
-                vuint16_t CCD:1;
-                vuint16_t CFD:1;
-                vuint16_t LASE:1;
-                vuint16_t AWUM:1;
-                vuint16_t MBL:4;
-                vuint16_t BF:1;
-                vuint16_t SLFM:1;
-                vuint16_t LBKM:1;
-                vuint16_t MME:1;
-                vuint16_t SBDT:1;
-                vuint16_t RBLM:1;
-                vuint16_t SLEEP:1;
-                vuint16_t INIT:1;
+                vuint32_t:16;
+                vuint32_t CCD:1;
+                vuint32_t CFD:1;
+                vuint32_t LASE:1;
+                vuint32_t AWUM:1;
+                vuint32_t MBL:4;
+                vuint32_t BF:1;
+                vuint32_t SLFM:1;
+                vuint32_t LBKM:1;
+                vuint32_t MME:1;
+                vuint32_t SBDT:1;
+                vuint32_t RBLM:1;
+                vuint32_t SLEEP:1;
+                vuint32_t INIT:1;
             } B;
         } LINCR1;               /* LINFLEX LIN Control Register 1 */
 
-        int16_t LINFLEX_reserved2;
-
         union {
-            vuint16_t R;
+            vuint32_t R;
             struct {
-                vuint16_t SZIE:1;
-                vuint16_t OCIE:1;
-                vuint16_t BEIE:1;
-                vuint16_t CEIE:1;
-                vuint16_t HEIE:1;
-                  vuint16_t:2;
-                vuint16_t FEIE:1;
-                vuint16_t BOIE:1;
-                vuint16_t LSIE:1;
-                vuint16_t WUIE:1;
-                vuint16_t DBFIE:1;
-                vuint16_t DBEIE:1;
-                vuint16_t DRIE:1;
-                vuint16_t DTIE:1;
-                vuint16_t HRIE:1;
+                vuint32_t:16;
+                vuint32_t SZIE:1;
+                vuint32_t OCIE:1;
+                vuint32_t BEIE:1;
+                vuint32_t CEIE:1;
+                vuint32_t HEIE:1;
+                  vuint32_t:2;
+                vuint32_t FEIE:1;
+                vuint32_t BOIE:1;
+                vuint32_t LSIE:1;
+                vuint32_t WUIE:1;
+                vuint32_t DBFIE:1;
+                vuint32_t DBEIE:1;
+                vuint32_t DRIE:1;
+                vuint32_t DTIE:1;
+                vuint32_t HRIE:1;
             } B;
         } LINIER;               /* LINFLEX LIN Interrupt Enable Register */
 
-        int16_t LINFLEX_reserved3;
-
         union {
-            vuint16_t R;
+            vuint32_t R;
             struct {
-                vuint16_t LINS:4;
-                  vuint16_t:2;
-                vuint16_t RMB:1;
-                  vuint16_t:1;
-                vuint16_t RBSY:1;
-                vuint16_t RPS:1;
-                vuint16_t WUF:1;
-                vuint16_t DBFF:1;
-                vuint16_t DBEF:1;
-                vuint16_t DRF:1;
-                vuint16_t DTF:1;
-                vuint16_t HRF:1;
+                vuint32_t:16;
+                vuint32_t LINS:4;
+                  vuint32_t:2;
+                vuint32_t RMB:1;
+                  vuint32_t:1;
+                vuint32_t RBSY:1;
+                vuint32_t RPS:1;
+                vuint32_t WUF:1;
+                vuint32_t DBFF:1;
+                vuint32_t DBEF:1;
+                vuint32_t DRF:1;
+                vuint32_t DTF:1;
+                vuint32_t HRF:1;
             } B;
         } LINSR;                /* LINFLEX LIN Status Register */
 
-        int16_t LINFLEX_reserved4;
-
         union {
-            vuint16_t R;
+            vuint32_t R;
             struct {
-                vuint16_t SZF:1;
-                vuint16_t OCF:1;
-                vuint16_t BEF:1;
-                vuint16_t CEF:1;
-                vuint16_t SFEF:1;
-                vuint16_t SDEF:1;
-                vuint16_t IDPEF:1;
-                vuint16_t FEF:1;
-                vuint16_t BOF:1;
-                  vuint16_t:6;
-                vuint16_t NF:1;
+                vuint32_t:16;
+                vuint32_t SZF:1;
+                vuint32_t OCF:1;
+                vuint32_t BEF:1;
+                vuint32_t CEF:1;
+                vuint32_t SFEF:1;
+                vuint32_t SDEF:1;
+                vuint32_t IDPEF:1;
+                vuint32_t FEF:1;
+                vuint32_t BOF:1;
+                  vuint32_t:6;
+                vuint32_t NF:1;
             } B;
         } LINESR;               /* LINFLEX LIN Error Status Register */
 
-        int16_t LINFLEX_reserved5;
-
         union {
-            vuint16_t R;
+            vuint32_t R;
             struct {
-                vuint16_t:1;
-                vuint16_t TDFL:2;
-                  vuint16_t:1;
-                vuint16_t RDFL:2;
-                  vuint16_t:4;
-                vuint16_t RXEN:1;
-                vuint16_t TXEN:1;
-                vuint16_t OP:1;
-                vuint16_t PCE:1;
-                vuint16_t WL:1;
-                vuint16_t UART:1;
+                vuint32_t:16;
+                vuint32_t:1;
+                vuint32_t TDFL:2;
+                  vuint32_t:1;
+                vuint32_t RDFL:2;
+                  vuint32_t:4;
+                vuint32_t RXEN:1;
+                vuint32_t TXEN:1;
+                vuint32_t OP:1;
+                vuint32_t PCE:1;
+                vuint32_t WL:1;
+                vuint32_t UART:1;
             } B;
         } UARTCR;               /* LINFLEX UART Mode Control Register */
 
-        int16_t LINFLEX_reserved6;
-
         union {
-            vuint16_t R;
+            vuint32_t R;
             struct {
-                vuint16_t SZF:1;
-                vuint16_t OCF:1;
-                vuint16_t PE:4;
-                vuint16_t RMB:1;
-                vuint16_t FEF:1;
-                vuint16_t BOF:1;
-                vuint16_t RPS:1;
-                vuint16_t WUF:1;
-                  vuint16_t:2;
-                vuint16_t DRF:1;
-                vuint16_t DTF:1;
-                vuint16_t NF:1;
+                vuint32_t:16;
+                vuint32_t SZF:1;
+                vuint32_t OCF:1;
+                vuint32_t PE:4;
+                vuint32_t RMB:1;
+                vuint32_t FEF:1;
+                vuint32_t BOF:1;
+                vuint32_t RPS:1;
+                vuint32_t WUF:1;
+                  vuint32_t:2;
+                vuint32_t DRF:1;
+                vuint32_t DTF:1;
+                vuint32_t NF:1;
             } B;
         } UARTSR;               /* LINFLEX UART Mode Status Register */
 
-        int16_t LINFLEX_reserved7;
-
         union {
-            vuint16_t R;
+            vuint32_t R;
             struct {
-                vuint16_t:5;
-                vuint16_t LTOM:1;
-                vuint16_t IOT:1;
-                vuint16_t TOCE:1;
-                vuint16_t CNT:8;
+                vuint32_t:16;
+                vuint32_t:5;
+                vuint32_t LTOM:1;
+                vuint32_t IOT:1;
+                vuint32_t TOCE:1;
+                vuint32_t CNT:8;
             } B;
         } LINTCSR;              /* LINFLEX LIN Time-Out Control Status Register */
 
-        int16_t LINFLEX_reserved8;
-
         union {
-            vuint16_t R;
+            vuint32_t R;
             struct {
-                vuint16_t OC2:8;
-                vuint16_t OC1:8;
+                vuint32_t:16;
+                vuint32_t OC2:8;
+                vuint32_t OC1:8;
             } B;
         } LINOCR;               /* LINFLEX LIN Output Compare Register */
 
-        int16_t LINFLEX_reserved9;
-
         union {
-            vuint16_t R;
+            vuint32_t R;
             struct {
-                vuint16_t:4;
-                vuint16_t RTO:4;
-                  vuint16_t:1;
-                vuint16_t HTO:7;
+                vuint32_t:16;
+                vuint32_t:4;
+                vuint32_t RTO:4;
+                  vuint32_t:1;
+                vuint32_t HTO:7;
             } B;
         } LINTOCR;              /* LINFLEX LIN Output Compare Register */
 
-        int16_t LINFLEX_reserved10;
-
         union {
-            vuint16_t R;
+            vuint32_t R;
             struct {
-                vuint16_t:12;
-                vuint16_t DIV_F:4;
+                vuint32_t:16;
+                vuint32_t:12;
+                vuint32_t DIV_F:4;
             } B;
         } LINFBRR;              /* LINFLEX LIN Fractional Baud Rate Register */
 
-        int16_t LINFLEX_reserved11;
-
         union {
-            vuint16_t R;
+            vuint32_t R;
             struct {
-                vuint16_t:3;
-                vuint16_t DIV_M:13;
+                vuint32_t:16;
+                vuint32_t:3;
+                vuint32_t DIV_M:13;
             } B;
         } LINIBRR;              /* LINFLEX LIN Integer Baud Rate Register */
 
-        int16_t LINFLEX_reserved12;
-
         union {
-            vuint16_t R;
+            vuint32_t R;
             struct {
-                vuint16_t:8;
-                vuint16_t CF:8;
+                vuint32_t:16;
+                vuint32_t:8;
+                vuint32_t CF:8;
             } B;
         } LINCFR;               /* LINFLEX LIN Checksum Field Register */
 
-        int16_t LINFLEX_reserved13;
-
         union {
-            vuint16_t R;
+            vuint32_t R;
             struct {
-                vuint16_t:1;
-                vuint16_t IOBE:1;
-                vuint16_t IOPE:1;
-                vuint16_t WURQ:1;
-                vuint16_t DDRQ:1;
-                vuint16_t DTRQ:1;
-                vuint16_t ABRQ:1;
-                vuint16_t HTRQ:1;
-                  vuint16_t:8;
+                vuint32_t:16;
+                vuint32_t:1;
+                vuint32_t IOBE:1;
+                vuint32_t IOPE:1;
+                vuint32_t WURQ:1;
+                vuint32_t DDRQ:1;
+                vuint32_t DTRQ:1;
+                vuint32_t ABRQ:1;
+                vuint32_t HTRQ:1;
+                  vuint32_t:8;
             } B;
         } LINCR2;               /* LINFLEX LIN Control Register 2 */
 
-        int16_t LINFLEX_reserved14;
-
         union {
-            vuint16_t R;
+            vuint32_t R;
             struct {
-                vuint16_t DFL:6;
-                vuint16_t DIR:1;
-                vuint16_t CCS:1;
-                  vuint16_t:2;
-                vuint16_t ID:6;
+                vuint32_t:16;
+                vuint32_t DFL:6;
+                vuint32_t DIR:1;
+                vuint32_t CCS:1;
+                  vuint32_t:2;
+                vuint32_t ID:6;
             } B;
         } BIDR;                 /* LINFLEX Buffer Identifier Register */
 
@@ -2323,147 +2323,45 @@ extern "C" {
             } B;
         } BDRM;                 /* LINFLEX Buffer Data Register Most Significant */
 
-        int16_t LINFLEX_reserved15;
-
         union {
-            vuint16_t R;
+            vuint32_t R;
             struct {
-                vuint16_t:8;
-                vuint16_t FACT:8;
+                vuint32_t:16;
+                vuint32_t:8;
+                vuint32_t FACT:8;
             } B;
         } IFER;                 /* LINFLEX Identifier Filter Enable Register */
 
-        int16_t LINFLEX_reserved16;
-
         union {
-            vuint16_t R;
+            vuint32_t R;
             struct {
-                vuint16_t:12;
-                vuint16_t IFMI:4;
+                vuint32_t:16;
+                vuint32_t:12;
+                vuint32_t IFMI:4;
             } B;
         } IFMI;                 /* LINFLEX Identifier Filter Match Index Register */
 
-        int16_t LINFLEX_reserved17;
-
         union {
-            vuint16_t R;
+            vuint32_t R;
             struct {
-                vuint16_t:12;
-                vuint16_t IFM:4;
+                vuint32_t:16;
+                vuint32_t:12;
+                vuint32_t IFM:4;
             } B;
         } IFMR;                 /* LINFLEX Identifier Filter Mode Register */
 
-        int16_t LINFLEX_reserved18;
-
         union {
-            vuint16_t R;
+            vuint32_t R;
             struct {
-                vuint16_t:3;
-                vuint16_t DFL:3;
-                vuint16_t DIR:1;
-                vuint16_t CCS:1;
-                  vuint16_t:2;
-                vuint16_t ID:6;
+                vuint32_t:16;
+                vuint32_t:3;
+                vuint32_t DFL:3;
+                vuint32_t DIR:1;
+                vuint32_t CCS:1;
+                  vuint32_t:2;
+                vuint32_t ID:6;
             } B;
-        } IFCR0;                /* LINFLEX Identifier Filter Control Register 0 */
-
-        int16_t LINFLEX_reserved19;
-
-        union {
-            vuint16_t R;
-            struct {
-                vuint16_t:3;
-                vuint16_t DFL:3;
-                vuint16_t DIR:1;
-                vuint16_t CCS:1;
-                  vuint16_t:2;
-                vuint16_t ID:6;
-            } B;
-        } IFCR1;                /* LINFLEX Identifier Filter Control Register 1 */
-
-        int16_t LINFLEX_reserved20;
-
-        union {
-            vuint16_t R;
-            struct {
-                vuint16_t:3;
-                vuint16_t DFL:3;
-                vuint16_t DIR:1;
-                vuint16_t CCS:1;
-                  vuint16_t:2;
-                vuint16_t ID:6;
-            } B;
-        } IFCR2;                /* LINFLEX Identifier Filter Control Register 2 */
-
-        int16_t LINFLEX_reserved21;
-
-        union {
-            vuint16_t R;
-            struct {
-                vuint16_t:3;
-                vuint16_t DFL:3;
-                vuint16_t DIR:1;
-                vuint16_t CCS:1;
-                  vuint16_t:2;
-                vuint16_t ID:6;
-            } B;
-        } IFCR3;                /* LINFLEX Identifier Filter Control Register 3 */
-
-        int16_t LINFLEX_reserved22;
-
-        union {
-            vuint16_t R;
-            struct {
-                vuint16_t:3;
-                vuint16_t DFL:3;
-                vuint16_t DIR:1;
-                vuint16_t CCS:1;
-                  vuint16_t:2;
-                vuint16_t ID:6;
-            } B;
-        } IFCR4;                /* LINFLEX Identifier Filter Control Register 4 */
-
-        int16_t LINFLEX_reserved23;
-
-        union {
-            vuint16_t R;
-            struct {
-                vuint16_t:3;
-                vuint16_t DFL:3;
-                vuint16_t DIR:1;
-                vuint16_t CCS:1;
-                  vuint16_t:2;
-                vuint16_t ID:6;
-            } B;
-        } IFCR5;                /* LINFLEX Identifier Filter Control Register 5 */
-
-        int16_t LINFLEX_reserved24;
-
-        union {
-            vuint16_t R;
-            struct {
-                vuint16_t:3;
-                vuint16_t DFL:3;
-                vuint16_t DIR:1;
-                vuint16_t CCS:1;
-                  vuint16_t:2;
-                vuint16_t ID:6;
-            } B;
-        } IFCR6;                /* LINFLEX Identifier Filter Control Register 6 */
-
-        int16_t LINFLEX_reserved25;
-
-        union {
-            vuint16_t R;
-            struct {
-                vuint16_t:3;
-                vuint16_t DFL:3;
-                vuint16_t DIR:1;
-                vuint16_t CCS:1;
-                  vuint16_t:2;
-                vuint16_t ID:6;
-            } B;
-        } IFCR7;                /* LINFLEX Identifier Filter Control Register 7 */
+        } IFCR[16];             /* LINFLEX Identifier Filter Control Register 0-15 */
 
     };                          /* end of LINFLEX_tag */
 /****************************************************************************/
@@ -3446,12 +3344,13 @@ extern "C" {
             vuint16_t R;
             struct {
                 vuint16_t:1;
-                vuint16_t SME:1;
+                vuint16_t SMC:1;
                 vuint16_t APC:1;
                   vuint16_t:1;
                 vuint16_t PA:2;
                 vuint16_t OBE:1;
                 vuint16_t IBE:1;
+                  vuint16_t:2;
                 vuint16_t ODE:1;
                   vuint16_t:2;
                 vuint16_t SRC:1;
@@ -3804,8 +3703,8 @@ extern "C" {
     };                          /* end of WKUP_tag */
 /****************************************************************** 
 | defines and macros (scope: module-local) 
-|-----------------------------------------------------------------*/
-/* Define instances of modules */
+|-----------------------------------------------------------------*/ 
+/* Define instances of modules */ 
 #define ADC       (*(volatile struct ADC_tag *)       0xFFE00000UL)
 #define CAN_0     (*(volatile struct FLEXCAN_tag *)   0xFFFC0000UL)
 #define CAN_1     (*(volatile struct FLEXCAN_tag *)   0xFFFC4000UL)
@@ -3822,15 +3721,15 @@ extern "C" {
 #define DSPI_1    (*(volatile struct DSPI_tag *)      0xFFF94000UL)
 #define DSPI_2    (*(volatile struct DSPI_tag *)      0xFFF98000UL)
 #define DSPI_3    (*(volatile struct DSPI_tag *)      0xFFF9C000UL)
-#define ECSM      (*(volatile struct ECSM_tag *)      0xFFF40000UL)
+#define ECSM      (*(volatile struct ECSM_tag *)      0xFFF40000UL)   
 #define EMIOS_0   (*(volatile struct EMIOS_tag *)     0xC3FA0000UL)
 #define EMIOS_1   (*(volatile struct EMIOS_tag *)     0xC3FA4000UL)
 #define I2C       (*(volatile struct I2C_tag *)       0xFFE30000UL)
-#define INTC      (*(volatile struct INTC_tag *)      0xFFF48000UL)
+#define INTC      (*(volatile struct INTC_tag *)      0xFFF48000UL)  
 #define LINFLEX_0 (*(volatile struct LINFLEX_tag *)   0xFFE40000UL)
-#define LINFLEX_1 (*(volatile struct LINFLEX_tag *)   0xFFE44000UL)
-#define LINFLEX_2 (*(volatile struct LINFLEX_tag *)   0xFFE48000UL)
-#define LINFLEX_3 (*(volatile struct LINFLEX_tag *)   0xFFE4C000UL)
+#define LINFLEX_1 (*(volatile struct LINFLEX_tag *)   0xFFE44000UL) 
+#define LINFLEX_2 (*(volatile struct LINFLEX_tag *)   0xFFE48000UL) 
+#define LINFLEX_3 (*(volatile struct LINFLEX_tag *)   0xFFE4C000UL) 
 #define ME        (*(volatile struct ME_tag *)        0xC3FDC000UL)
 #define MPU       (*(volatile struct MPU_tag *)       0xFFF10000UL)
 #define PCU       (*(volatile struct PCU_tag *)       0xC3FE8000UL)
@@ -3838,17 +3737,21 @@ extern "C" {
 #define RGM       (*(volatile struct RGM_tag *)       0xC3FE4000UL)
 #define RTC       (*(volatile struct RTC_tag *)       0xC3FEC000UL)
 #define SIU       (*(volatile struct SIU_tag *)       0xC3F90000UL)
-#define SSCM      (*(volatile struct SSCM_tag *)      0xC3FD8000UL)
+#define SSCM      (*(volatile struct SSCM_tag *)      0xC3FD8000UL) 
 #define STM       (*(volatile struct STM_tag *)       0xFFF3C000UL)
 #define SWT       (*(volatile struct SWT_tag *)       0xFFF38000UL)
-#define WKUP      (*(volatile struct WKUP_tag *)      0xC3F94000UL)
-
+#define WKUP      (*(volatile struct WKUP_tag *)      0xC3F94000UL)  
+     
 #ifdef __MWERKS__
 #pragma pop
-#endif
-
+#endif  /* 
+ */
+     
 #ifdef  __cplusplus
-}
-#endif
-#endif                          /* ifdef _JDP_H */
-/* End of file */
+} 
+#endif  /* 
+ */
+ 
+#endif  /* ifdef _MPC5604B_H */
+ 
+/* End of file */ 

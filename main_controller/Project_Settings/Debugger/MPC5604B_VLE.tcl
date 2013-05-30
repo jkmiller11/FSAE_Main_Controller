@@ -3,9 +3,7 @@
 # initilizes the ECC SRAM and sets the PC to the user program entry point
 # from the internal flash. If the entry point isn't available the BAM start address.
 #
-# Rev. 1.2 - fix reading RCHW 
-#
-# VERSION: 1.2
+# VERSION: 1.1
 
 # GPR register group
 set GPR_GROUP "General Purpose Registers/"
@@ -72,9 +70,9 @@ proc get_entry_point {} {
 		foreach rchw $SECTORS_ADD {
 			catch {set rchw_value [mem $rchw -np]}
 			if {[expr $rchw_value & 0xFF0000] == 0x5A0000} {
-				catch {set reset_vector_addr [mem [format "0x%x" [expr $rchw + 0x4]] -np]}
-				set reset_vector_addr [format "0x%x" [expr $reset_vector_addr & 0xFFFFFFFF]]
-				puts "found boot sector at $rchw and entry point at $reset_vector_addr."  
+				catch {set reset_vector_addr [mem [expr $rchw + 4] -np]}
+				set reset_vector_addr [format %x [expr $reset_vector_addr & 0xFFFFFFFF]]
+				puts "found boot sector at $rchw and entry point at 0x$reset_vector_addr."  
 				break
 			}
 		}		

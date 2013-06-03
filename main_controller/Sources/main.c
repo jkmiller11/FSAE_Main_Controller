@@ -5,7 +5,15 @@
 /* Copyright Freescale Semiconductor, Inc 2009, 2010. All rights reserved. */
 
 #include "MPC5604B.h" /* Use proper header file */
-uint16_t result;
+
+#define MODE 0 //0 = speed, 1 = torque
+
+#define MAX_TORQUE 200
+#define MAX_SPEED 600
+
+uint16_t voltage;
+int16_t torque;
+int16_t speed;
 vuint32_t i = 0;                      /* Dummy idle counter */
 uint16_t RecDataMaster = 0;           /* Data recieved on master SPI */
 
@@ -75,18 +83,36 @@ void initCAN_1 (void) {
 }
 
 void TransmitMsg (void) {
-  uint8_t	i;
-                                   /* Assumption:  Message buffer CODE is INACTIVE */
-  uint16_t TxData = 255;  /* Transmit string*/
-  CAN_1.BUF[0].CS.B.IDE = 0;           /* Use standard ID length */
-  CAN_1.BUF[0].ID.B.STD_ID = 555;      /* Transmit ID is 555 */
-  CAN_1.BUF[0].CS.B.RTR = 0;           /* Data frame, not remote Tx request frame */
-  CAN_1.BUF[0].CS.B.LENGTH = sizeof(TxData) -1 ; /* # bytes to transmit w/o null */
-  for (i=0; i<sizeof(TxData); i++) {
-    CAN_1.BUF[0].DATA.H[i] = TxData;      /* Data to be transmitted */
-  }
-  CAN_1.BUF[0].CS.B.SRR = 1;           /* Tx frame (not req'd for standard frame)*/
-  CAN_1.BUF[0].CS.B.CODE =0xC;         /* Activate msg. buf. to transmit data frame */ 
+	uint8_t	i;
+	
+	union {
+		int8_t B[8];      /* Data buffer in Bytes (8 bits) */
+		int16_t H[4];     /* Data buffer in Half-words (16 bits) */
+		int32_t W[2];     /* Data buffer in words (32 bits) */
+		int32_t R[2];     /* Data buffer in words (32 bits) */
+	} TxData;
+	
+	TxData.W[0] = 0;
+	TxData.W[1] = 0;
+	
+	if (MODE == 1) {
+		TxData.H[3] = torque;  /* Transmit string*/
+	} else {
+		TxData.H[3] = speed;  /* Transmit string*/
+	}
+	CAN_1.BUF[0].CS.B.IDE = 0;           /* Use standard ID length */
+	if (MODE == 1) {
+		CAN_1.BUF[0].ID.B.STD_ID = 592;      /* Transmit ID is 592 */
+	} else {
+		CAN_1.BUF[0].ID.B.STD_ID = 848;      /* Transmit ID is 848 */
+	}
+	CAN_1.BUF[0].CS.B.RTR = 0;           /* Data frame, not remote Tx request frame */
+	CAN_1.BUF[0].CS.B.LENGTH = sizeof(TxData); /* # bytes to transmit w/o null */
+	for (i=0; i<sizeof(TxData); i++) {
+		CAN_1.BUF[0].DATA.B[i] = TxData.B[sizeof(TxData) - i - 1];      /* Data to be transmitted */
+	}
+	CAN_1.BUF[0].CS.B.SRR = 1;           /* Tx frame (not req'd for standard frame)*/
+	CAN_1.BUF[0].CS.B.CODE =0xC;         /* Activate msg. buf. to transmit data frame */
 }
 
 void initDSPI_1(void) {
@@ -112,7 +138,7 @@ void ReadDataDSPI_1(void) {
 }
 
 void initADC() {
-	SIU.PCR[24].R = 0x2000; /* MPC56xxS: Initialize PC[0] as ANS0 */
+	SIU.PCR[24].R = 0x2000; // PB[8]
 	//SIU.PCR[25].R = 0x2000; /* MPC56xxS: Initialize PC[1] as ANS1 */
 	//SIU.PCR[26].R = 0x2000; /* MPC56xxS: Initialize PC[2] as ANS2 */
 	ADC.MCR.R = 0x20000000; /* Initialize ADC0 for scan mode */
@@ -123,7 +149,7 @@ void initADC() {
 
 void getVoltage(void) {
 	while (ADC.CDR[33].B.VALID != 1) {}; /* Wait for last scan to complete */
-	result = ADC.CDR[32].B.CDATA; /* Read ANS0 conversion result data */
+	voltage = ADC.CDR[32].B.CDATA; /* Read ANS0 conversion result data */
 }
 
 void initLED() {
@@ -135,7 +161,7 @@ void initLED() {
 
 void toLED(void) {
 	SIU.PGPDO[2].R |= 0x0f000000;		/* Disable LEDs*/
-	SIU.PGPDO[2].R &= result << 18;		/* Enable LED1*/
+	SIU.PGPDO[2].R &= ~(voltage << 18);		/* Enable LED1*/
 }
 
 void canSetup() {
@@ -176,6 +202,14 @@ void canSetup() {
 	  initCAN_1();             /* Initialize FlexCAN 0 & one of its buffers for transmit*/
 }
 
+void convertTorque() {
+	torque = (MAX_TORQUE * voltage) / 1023;
+}
+
+void convertSpeed() {
+	speed = (MAX_SPEED * voltage) / 1023;
+}
+
 void main (void) {
 	vuint32_t i = 0;
 	initModesAndClock(); /* Initialize mode entries and system clock */
@@ -195,9 +229,16 @@ void main (void) {
 	/* Loop forever */
 	for (;;) 
 	{
-		getVoltage();
-		toLED();
-		TransmitMsg();
+		if (i % 100000 == 0) {
+			getVoltage();
+			toLED();
+			if (MODE == 1) {
+				convertTorque();
+			} else {
+				convertSpeed();
+			}
+			TransmitMsg();
+		}
 		i++;
 	}
 }

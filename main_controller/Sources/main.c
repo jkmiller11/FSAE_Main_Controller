@@ -16,6 +16,8 @@ int16_t torque;
 int16_t speed;
 vuint32_t i = 0;                      /* Dummy idle counter */
 uint16_t RecDataMaster = 0;           /* Data recieved on master SPI */
+uint8_t energizeButton = 1;
+
 
 
 void initModesAndClock(void) {
@@ -213,6 +215,23 @@ void convertSpeed() {
 	}
 }
 
+void initEnergizeButton() {
+	SIU.PCR[64].B.SME = 0;
+	SIU.PCR[64].B.APC = 0;
+	SIU.PCR[64].B.PA = 0;
+	SIU.PCR[64].B.OBE = 0;
+	SIU.PCR[64].B.IBE = 1;
+	SIU.PCR[64].B.SRC = 0;
+	SIU.PCR[64].B.WPE = 0;
+	SIU.PCR[64].B.WPS = 1;
+}
+
+void getEnergizeButton() {
+	energizeButton = SIU.GPDI[64].R;
+	SIU.PGPDO[2].R |= 0x0f000000;
+	SIU.PGPDO[2].R &= ~(energizeButton << 24);
+}
+
 void main (void) {
 	vuint32_t i = 0;
 	initModesAndClock(); /* Initialize mode entries and system clock */
@@ -228,20 +247,23 @@ void main (void) {
 	
 	
 	canSetup();
-	  
+	
+	initEnergizeButton();
+	
 	/* Loop forever */
 	for (;;) 
 	{
-		if (i % 100000 == 0) {
-			getVoltage();
-			toLED();
-			if (MODE == 1) {
-				convertTorque();
-			} else {
-				convertSpeed();
-			}
-			TransmitMsg();
-		}
+//		if (i % 100000 == 0) {
+//			getVoltage();
+//			toLED();
+//			if (MODE == 1) {
+//				convertTorque();
+//			} else {
+//				convertSpeed();
+//			}
+//			TransmitMsg();
+//		}
+		getEnergizeButton();
 		i++;
 	}
 }

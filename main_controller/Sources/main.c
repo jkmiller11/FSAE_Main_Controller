@@ -39,9 +39,9 @@ void initModesAndClock(void) {
 	ME.PCTL[72].R = 0x01;           	/* MPC56xxB/S EMIOS 0:  select ME.RUNPC[1] */
 	
 	//can stuff
-	  ME.PCTL[4].R = 0x01;            /* MPC56xxB/P/S DSPI0:  select ME.RUNPC[1] */	
-	  ME.PCTL[5].R = 0x01;            /* MPC56xxB/P/S DSPI1:  select ME.RUNPC[1] */	
-	  ME.PCTL[17].R = 0x01;           /* MPC56xxB/S FlexCAN1:  select ME.RUNPC[1] */	
+	ME.PCTL[4].R = 0x01;            /* MPC56xxB/P/S DSPI0:  select ME.RUNPC[1] */	
+	ME.PCTL[5].R = 0x01;            /* MPC56xxB/P/S DSPI1:  select ME.RUNPC[1] */	
+	ME.PCTL[17].R = 0x01;           /* MPC56xxB/S FlexCAN1:  select ME.RUNPC[1] */	
 	  
 	                              		/* Mode Transition to enter RUN0 mode: */
 	ME.MCTL.R = 0x40005AF0;         	/* Enter RUN0 Mode & Key */
@@ -61,25 +61,25 @@ void initPeriClkGen(void) {
 }
 
 void disableWatchdog(void) {
-  SWT.SR.R = 0x0000c520;     /* Write keys to clear soft lock bit */
-  SWT.SR.R = 0x0000d928; 
-  SWT.CR.R = 0x8000010A;     /* Clear watchdog enable (WEN) */
+	SWT.SR.R = 0x0000c520;     /* Write keys to clear soft lock bit */
+	SWT.SR.R = 0x0000d928; 
+	SWT.CR.R = 0x8000010A;     /* Clear watchdog enable (WEN) */
 }
 
 void initCAN_1 (void) {
-  uint8_t   i;
-
-  CAN_1.MCR.R = 0x5000003F;       /* Put in Freeze Mode & enable all 64 msg bufs */
-  CAN_1.CR.R = 0x00DB0006;        /* Configure for 8MHz OSC, 100KHz bit time */
-  for (i=0; i<64; i++) {
-    CAN_1.BUF[i].CS.B.CODE = 0;   /* Inactivate all message buffers */
-  } 
-  CAN_1.BUF[0].CS.B.CODE = 8;     /* Message Buffer 0 set to TX INACTIVE */
-  
-  SIU.PCR[42].R = 0x0624;         /* MPC56xxB: Config port C10 as CAN1TX, open drain */
-  SIU.PCR[43].R = 0x0100;         /* MPC56xxB: Configure port C11 as CAN1RX */
-  SIU.PSMI[0].R = 0x01;           /* MPC56xxB: Select PCR 43 for CAN1RX Input */  
-  CAN_1.MCR.R = 0x0000003F;       /* Negate FlexCAN 0 halt state for 64 MB */
+	uint8_t   i;
+	
+	CAN_1.MCR.R = 0x5000003F;       /* Put in Freeze Mode & enable all 64 msg bufs */
+	CAN_1.CR.R = 0x00DB0006;        /* Configure for 8MHz OSC, 100KHz bit time */
+	for (i=0; i<64; i++) {
+		CAN_1.BUF[i].CS.B.CODE = 0;   /* Inactivate all message buffers */
+	} 
+	CAN_1.BUF[0].CS.B.CODE = 8;     /* Message Buffer 0 set to TX INACTIVE */
+	
+	SIU.PCR[42].R = 0x0624;         /* MPC56xxB: Config port C10 as CAN1TX, open drain */
+	SIU.PCR[43].R = 0x0100;         /* MPC56xxB: Configure port C11 as CAN1RX */
+	SIU.PSMI[0].R = 0x01;           /* MPC56xxB: Select PCR 43 for CAN1RX Input */  
+	CAN_1.MCR.R = 0x0000003F;       /* Negate FlexCAN 0 halt state for 64 MB */
 }
 
 void TransmitMsg (void) {
@@ -116,25 +116,25 @@ void TransmitMsg (void) {
 }
 
 void initDSPI_1(void) {
-  DSPI_1.MCR.R = 0x80010001;     /* Configure DSPI_1 as master */
-  DSPI_1.CTAR[0].R = 0x7A0A7727; /* Configure CTAR0  */
-  DSPI_1.MCR.B.HALT = 0x0;	     /* Exit HALT mode: go from STOPPED to RUNNING state*/      
-  
-  SIU.PCR[112].R = 0x0903;  /* Config pad as DSPI_1 SIN input */
-  SIU.PCR[113].R = 0x0A04;  /* Config pad as DSPI_1 SOUT output */
-  SIU.PCR[114].R = 0x0A04;  /* Config pad as DSPI_1 SCK output */
-  SIU.PCR[115].R = 0x0A04;  /* Config pad as DSPI_1 CS0 output */    
-  
-  SIU.PSMI[7].R = 2;  /* Select PCR 114 for SCK */
-  SIU.PSMI[8].R = 2;  /* Select PCR 112 for SIN */
-  SIU.PSMI[9].R = 3;  /* Select PCR 115 for CS0 */
+	DSPI_1.MCR.R = 0x80010001;     /* Configure DSPI_1 as master */
+	DSPI_1.CTAR[0].R = 0x7A0A7727; /* Configure CTAR0  */
+	DSPI_1.MCR.B.HALT = 0x0;	     /* Exit HALT mode: go from STOPPED to RUNNING state*/      
+	
+	SIU.PCR[112].R = 0x0903;  /* Config pad as DSPI_1 SIN input */
+	SIU.PCR[113].R = 0x0A04;  /* Config pad as DSPI_1 SOUT output */
+	SIU.PCR[114].R = 0x0A04;  /* Config pad as DSPI_1 SCK output */
+	SIU.PCR[115].R = 0x0A04;  /* Config pad as DSPI_1 CS0 output */    
+	
+	SIU.PSMI[7].R = 2;  /* Select PCR 114 for SCK */
+	SIU.PSMI[8].R = 2;  /* Select PCR 112 for SIN */
+	SIU.PSMI[9].R = 3;  /* Select PCR 115 for CS0 */
 }
 
 
 void ReadDataDSPI_1(void) {
-  while (DSPI_1.SR.B.RFDF != 1){}  /* Wait for Receive FIFO Drain Flag = 1 */
-  RecDataMaster = DSPI_1.POPR.R;    /* Read data received by slave SPI */
-  DSPI_1.SR.R = 0x80020000;        /* Clear TCF, RDRF flags by writing 1 to them */
+	while (DSPI_1.SR.B.RFDF != 1){}  /* Wait for Receive FIFO Drain Flag = 1 */
+	RecDataMaster = DSPI_1.POPR.R;    /* Read data received by slave SPI */
+	DSPI_1.SR.R = 0x80020000;        /* Clear TCF, RDRF flags by writing 1 to them */
 }
 
 void initADC() {
@@ -149,7 +149,7 @@ void initADC() {
 
 void getVoltage(void) {
 	while (ADC.CDR[33].B.VALID != 1) {}; /* Wait for last scan to complete */
-	voltage = ADC.CDR[32].B.CDATA; /* Read ANS0 conversion result data */
+	voltage = (1023 - ADC.CDR[32].B.CDATA); /* Read ANS0 conversion result data */
 }
 
 void initLED() {
@@ -165,41 +165,41 @@ void toLED(void) {
 }
 
 void canSetup() {
-	  //AFTER POWER UP DEVICE IS IN INIT MODE
-	  DSPI_1.PUSHR.R = 0x0001DF80; // read  BAT FAIL
-	  ReadDataDSPI_1();          
-	  DSPI_1.PUSHR.R = 0x00011D80; // read  mode
-	  ReadDataDSPI_1();         
-	  DSPI_1.PUSHR.R = 0x00014C00; // write Init W/D  (simple W/D time out)
-	  ReadDataDSPI_1();          
-	  DSPI_1.PUSHR.R = 0x00010D00; // read  init W/D
-	  ReadDataDSPI_1();
-	  DSPI_1.PUSHR.R = 0x00014E28; // write init LIN
-	  ReadDataDSPI_1(); 
-	  DSPI_1.PUSHR.R = 0x00010F00; // read init LIN
-	  ReadDataDSPI_1(); 
-	  DSPI_1.PUSHR.R = 0x00015A00; // write normal mode
-	  ReadDataDSPI_1(); 
-	  //DEVICE IS IN NORMAL MODE
-	  DSPI_1.PUSHR.R = 0x00011D80; // read device mode
-	  ReadDataDSPI_1();
-	  DSPI_1.PUSHR.R = 0x00015A00; // W/D refresh
-	  ReadDataDSPI_1();
-	  //CONFIGURATION OF CAN/LIN
-	  DSPI_1.PUSHR.R = 0x000160C0; // write CAN
-	  ReadDataDSPI_1();
-	  DSPI_1.PUSHR.R = 0x00012100; // read CAN
-	  ReadDataDSPI_1();
-	  DSPI_1.PUSHR.R = 0x000166C0; // write LIN1
-	  ReadDataDSPI_1();
-	  DSPI_1.PUSHR.R = 0x00012700; // read LIN1
-	  ReadDataDSPI_1();
-	  DSPI_1.PUSHR.R = 0x000168C0; // write LIN1
-	  ReadDataDSPI_1();
-	  DSPI_1.PUSHR.R = 0x00012900; // read LIN1
-	  ReadDataDSPI_1();
-	                      
-	  initCAN_1();             /* Initialize FlexCAN 0 & one of its buffers for transmit*/
+	//AFTER POWER UP DEVICE IS IN INIT MODE
+	DSPI_1.PUSHR.R = 0x0001DF80; // read  BAT FAIL
+	ReadDataDSPI_1();          
+	DSPI_1.PUSHR.R = 0x00011D80; // read  mode
+	ReadDataDSPI_1();         
+	DSPI_1.PUSHR.R = 0x00014C00; // write Init W/D  (simple W/D time out)
+	ReadDataDSPI_1();          
+	DSPI_1.PUSHR.R = 0x00010D00; // read  init W/D
+	ReadDataDSPI_1();
+	DSPI_1.PUSHR.R = 0x00014E28; // write init LIN
+	ReadDataDSPI_1(); 
+	DSPI_1.PUSHR.R = 0x00010F00; // read init LIN
+	ReadDataDSPI_1(); 
+	DSPI_1.PUSHR.R = 0x00015A00; // write normal mode
+	ReadDataDSPI_1(); 
+	//DEVICE IS IN NORMAL MODE
+	DSPI_1.PUSHR.R = 0x00011D80; // read device mode
+	ReadDataDSPI_1();
+	DSPI_1.PUSHR.R = 0x00015A00; // W/D refresh
+	ReadDataDSPI_1();
+	//CONFIGURATION OF CAN/LIN
+	DSPI_1.PUSHR.R = 0x000160C0; // write CAN
+	ReadDataDSPI_1();
+	DSPI_1.PUSHR.R = 0x00012100; // read CAN
+	ReadDataDSPI_1();
+	DSPI_1.PUSHR.R = 0x000166C0; // write LIN1
+	ReadDataDSPI_1();
+	DSPI_1.PUSHR.R = 0x00012700; // read LIN1
+	ReadDataDSPI_1();
+	DSPI_1.PUSHR.R = 0x000168C0; // write LIN1
+	ReadDataDSPI_1();
+	DSPI_1.PUSHR.R = 0x00012900; // read LIN1
+	ReadDataDSPI_1();
+					  
+	initCAN_1();             /* Initialize FlexCAN 0 & one of its buffers for transmit*/
 }
 
 void convertTorque() {
@@ -207,7 +207,10 @@ void convertTorque() {
 }
 
 void convertSpeed() {
-	speed = (MAX_SPEED * voltage) / 1023;
+	speed = ((MAX_SPEED * voltage) / 1023) - 60;
+	if (speed < 60) {
+		speed = 0;
+	}
 }
 
 void main (void) {
@@ -219,12 +222,12 @@ void main (void) {
 	initLED();
 	
 	//can stuff
-	  initPeriClkGen();            /* Initize peripheral clock generation for DSPIs */
-
-	  initDSPI_1();                /* Initialize DSPI_1 as Slave SPI and init CTAR0 */
-	  
+	initPeriClkGen();            /* Initize peripheral clock generation for DSPIs */
 	
-	  canSetup();
+	initDSPI_1();                /* Initialize DSPI_1 as Slave SPI and init CTAR0 */
+	
+	
+	canSetup();
 	  
 	/* Loop forever */
 	for (;;) 

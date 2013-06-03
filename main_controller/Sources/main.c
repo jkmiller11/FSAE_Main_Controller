@@ -11,13 +11,21 @@
 #define MAX_TORQUE 200
 #define MAX_SPEED 600
 
-uint16_t voltage;
+//Enumeration of states
+enum myState {NOT_ENERGIZED = 0, ENERGIZED = 1, SHUTDOWN = 2};
+typedef enum myState state;
+
+state currentState =  NOT_ENERGIZED;
+
+
+uint16_t voltage0, voltage1;
 int16_t torque;
 int16_t speed;
 vuint32_t i = 0;                      /* Dummy idle counter */
 uint16_t RecDataMaster = 0;           /* Data recieved on master SPI */
 uint8_t energizeButton = 1;
-
+uint8_t prevEnergizeButton = 1;
+int16_t voltageError = 0;
 
 
 void initModesAndClock(void) {
@@ -141,7 +149,7 @@ void ReadDataDSPI_1(void) {
 
 void initADC() {
 	SIU.PCR[24].R = 0x2000; // PB[8]
-	//SIU.PCR[25].R = 0x2000; /* MPC56xxS: Initialize PC[1] as ANS1 */
+	SIU.PCR[25].R = 0x2000; // PB[9]
 	//SIU.PCR[26].R = 0x2000; /* MPC56xxS: Initialize PC[2] as ANS2 */
 	ADC.MCR.R = 0x20000000; /* Initialize ADC0 for scan mode */
 	ADC.NCMR[1].R = 0x00000007; /* Select ANS0:2 inputs for conversion */
@@ -151,7 +159,8 @@ void initADC() {
 
 void getVoltage(void) {
 	while (ADC.CDR[33].B.VALID != 1) {}; /* Wait for last scan to complete */
-	voltage = (1023 - ADC.CDR[32].B.CDATA); /* Read ANS0 conversion result data */
+	voltage0 = (1023 - ADC.CDR[32].B.CDATA); /* Read ANS0 conversion result data */
+	voltage1 = (1023 - ADC.CDR[33].B.CDATA); /* Read ANS1 conversion result data */
 }
 
 void initLED() {
@@ -163,7 +172,7 @@ void initLED() {
 
 void toLED(void) {
 	SIU.PGPDO[2].R |= 0x0f000000;		/* Disable LEDs*/
-	SIU.PGPDO[2].R &= ~(voltage << 18);		/* Enable LED1*/
+	SIU.PGPDO[2].R &= ~(voltage1 << 18);		/* Enable LED1*/
 }
 
 void canSetup() {
@@ -205,11 +214,11 @@ void canSetup() {
 }
 
 void convertTorque() {
-	torque = (MAX_TORQUE * voltage) / 1023;
+	torque = (MAX_TORQUE * voltage1) / 1023;
 }
 
 void convertSpeed() {
-	speed = ((MAX_SPEED * voltage) / 1023) - 60;
+	speed = ((MAX_SPEED * voltage1) / 1023) - 60;
 	if (speed < 60) {
 		speed = 0;
 	}
@@ -228,8 +237,20 @@ void initEnergizeButton() {
 
 void getEnergizeButton() {
 	energizeButton = SIU.GPDI[64].R;
-	SIU.PGPDO[2].R |= 0x0f000000;
-	SIU.PGPDO[2].R &= ~(energizeButton << 24);
+	//SIU.PGPDO[2].R |= 0x0f000000;
+	//SIU.PGPDO[2].R &= ~(energizeButton << 24);
+}
+
+void outputToLED(int32_t input) {
+	SIU.PGPDO[2].R = input;
+}
+
+void checkVoltage() {
+	if (voltage1 > voltage0) {
+		voltageError = (voltage1 - voltage0) * 100 / voltage0;
+	} else {
+		voltageError = (voltage0 - voltage1) * 100 / voltage1;
+	}
 }
 
 void main (void) {
@@ -253,6 +274,50 @@ void main (void) {
 	/* Loop forever */
 	for (;;) 
 	{
+		switch (currentState) {
+			case NOT_ENERGIZED:
+				if (!energizeButton && prevEnergizeButton) {
+					//send can energize signal
+					//
+					currentState = ENERGIZED;
+				} else {
+					outputToLED(15 << 24);
+				}
+				break;
+			case ENERGIZED:
+				if (!energizeButton && prevEnergizeButton) {
+					//send can deenergize signal
+					//
+					currentState = NOT_ENERGIZED;
+				} else {
+					getVoltage();
+					checkVoltage();
+					if (voltageError < 10) {
+						convertSpeed();
+						convertTorque();
+						outputToLED(voltage1 << 18);
+						//send can torque signal
+						//
+					} else {
+						currentState = SHUTDOWN;
+						//open shutdown circuit
+						//send can deenergize signal
+					}
+				}
+				break;
+			case SHUTDOWN:
+				// this should be changed to something else
+				if (!energizeButton && prevEnergizeButton) {
+					//send can energize signal
+					//
+					currentState = ENERGIZED;
+				} else {
+					outputToLED(0);
+				}
+				break;
+		}
+		prevEnergizeButton = energizeButton;
+		//outputToLED(currentState << 24);
 //		if (i % 100000 == 0) {
 //			getVoltage();
 //			toLED();
@@ -263,7 +328,11 @@ void main (void) {
 //			}
 //			TransmitMsg();
 //		}
+			
+		
 		getEnergizeButton();
+		
+		//SIU.PGPDO[2].R = ~(energizeButton << 24);
 		i++;
 	}
 }

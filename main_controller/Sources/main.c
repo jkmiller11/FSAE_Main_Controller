@@ -55,6 +55,13 @@ int16_t analogError = 0;
 
 uint16_t imp_count = 0;
 
+// Receive stuff
+uint32_t RxCODE; /* Received message buffer code */
+uint32_t RxID; /* Received message ID */
+uint32_t RxLENGTH; /* Recieved message number of data bytes */
+uint8_t RxDATA[8]; /* Received message data string*/
+uint32_t RxTIMESTAMP; /* Received message time */
+
 
 void initModesAndClock(void) {
 	ME.MER.R = 0x0000001D;          	/* Enable DRUN, RUN0, SAFE, RESET modes */
@@ -321,7 +328,20 @@ void canSend(CanPacket txPacket) {
 }
 
 
-
+void RecieveMsg (void) {
+	uint8_t j;
+	uint32_t dummy;
+	while (CAN_1.IFRL.B.BUF04I == 0) {}; /* Wait for CAN 1 MB 4 flag */
+	RxCODE = CAN_1.BUF[4].CS.B.CODE; /* Read CODE, ID, LENGTH, DATA, TIMESTAMP */
+	RxID = CAN_1.BUF[4].ID.B.STD_ID;
+	RxLENGTH = CAN_1.BUF[4].CS.B.LENGTH;
+	for (j=0; j<RxLENGTH; j++) { 
+		RxDATA[j] = CAN_1.BUF[4].DATA.B[j];
+	}
+	RxTIMESTAMP = CAN_1.BUF[4].CS.B.TIMESTAMP; 
+	dummy = CAN_1.TIMER.R; /* Read TIMER to unlock message buffers */ 
+	CAN_1.IFRL.R = 0x00000010; /* Clear CAN 1 MB 4 flag */
+}
 
 
 void main (void) {
@@ -402,7 +422,10 @@ void main (void) {
 					SIU.GPDO[0].R = 1;
 					break;
 			}
-			prevEnergizeButton = energizeButton;				
+			prevEnergizeButton = energizeButton;
+			
+			RecieveMsg();
+			
 			getEnergizeButton();
 		}
 		i++;

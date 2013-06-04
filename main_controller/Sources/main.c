@@ -11,10 +11,15 @@
 #define MAX_TORQUE 200
 #define MAX_SPEED 600
 
+#define MAX_ANALOG 1023
+
 #define ENERGIZE_ID 849
 #define DEENERGIZE_ID 850
 #define TORQUE_ID 848
 #define SPEED_ID 592
+#define SHUTDOWN_ID 851
+
+#define LOOP_TIME 10000
 
 //Enumeration of states
 enum myState {NOT_ENERGIZED = 0, ENERGIZED = 1, SHUTDOWN = 2};
@@ -35,17 +40,20 @@ CanPacket energizePacket;
 CanPacket deenergizePacket;
 CanPacket torquePacket;
 CanPacket speedPacket;
+CanPacket shutdownPacket;
 
 
 state currentState =  NOT_ENERGIZED;
-uint16_t voltage0, voltage1;
+uint16_t analog0, analog1;
 int16_t torque;
 int16_t speed;
 vuint32_t i = 0;                      /* Dummy idle counter */
 uint16_t RecDataMaster = 0;           /* Data recieved on master SPI */
 uint8_t energizeButton = 1;
 uint8_t prevEnergizeButton = 1;
-int16_t voltageError = 0;
+int16_t analogError = 0;
+
+uint16_t imp_count = 0;
 
 
 void initModesAndClock(void) {
@@ -112,38 +120,38 @@ void initCAN_1 (void) {
 	CAN_1.MCR.R = 0x0000003F;       /* Negate FlexCAN 0 halt state for 64 MB */
 }
 
-void TransmitMsg (void) {
-	uint8_t	i;
-	
-	union {
-		int8_t B[8];      /* Data buffer in Bytes (8 bits) */
-		int16_t H[4];     /* Data buffer in Half-words (16 bits) */
-		int32_t W[2];     /* Data buffer in words (32 bits) */
-		int32_t R[2];     /* Data buffer in words (32 bits) */
-	} TxData;
-	
-	TxData.W[0] = 0;
-	TxData.W[1] = 0;
-	
-	if (MODE == 1) {
-		TxData.H[3] = torque;  /* Transmit string*/
-	} else {
-		TxData.H[3] = speed;  /* Transmit string*/
-	}
-	CAN_1.BUF[0].CS.B.IDE = 0;           /* Use standard ID length */
-	if (MODE == 1) {
-		CAN_1.BUF[0].ID.B.STD_ID = 592;      /* Transmit ID is 592 */
-	} else {
-		CAN_1.BUF[0].ID.B.STD_ID = 848;      /* Transmit ID is 848 */
-	}
-	CAN_1.BUF[0].CS.B.RTR = 0;           /* Data frame, not remote Tx request frame */
-	CAN_1.BUF[0].CS.B.LENGTH = sizeof(TxData); /* # bytes to transmit w/o null */
-	for (i=0; i<sizeof(TxData); i++) {
-		CAN_1.BUF[0].DATA.B[i] = TxData.B[sizeof(TxData) - i - 1];      /* Data to be transmitted */
-	}
-	CAN_1.BUF[0].CS.B.SRR = 1;           /* Tx frame (not req'd for standard frame)*/
-	CAN_1.BUF[0].CS.B.CODE =0xC;         /* Activate msg. buf. to transmit data frame */
-}
+//void TransmitMsg (void) {
+//	uint8_t	i;
+//	
+//	union {
+//		int8_t B[8];      /* Data buffer in Bytes (8 bits) */
+//		int16_t H[4];     /* Data buffer in Half-words (16 bits) */
+//		int32_t W[2];     /* Data buffer in words (32 bits) */
+//		int32_t R[2];     /* Data buffer in words (32 bits) */
+//	} TxData;
+//	
+//	TxData.W[0] = 0;
+//	TxData.W[1] = 0;
+//	
+//	if (MODE == 1) {
+//		TxData.H[3] = torque;  /* Transmit string*/
+//	} else {
+//		TxData.H[3] = speed;  /* Transmit string*/
+//	}
+//	CAN_1.BUF[0].CS.B.IDE = 0;           /* Use standard ID length */
+//	if (MODE == 1) {
+//		CAN_1.BUF[0].ID.B.STD_ID = 592;      /* Transmit ID is 592 */
+//	} else {
+//		CAN_1.BUF[0].ID.B.STD_ID = 848;      /* Transmit ID is 848 */
+//	}
+//	CAN_1.BUF[0].CS.B.RTR = 0;           /* Data frame, not remote Tx request frame */
+//	CAN_1.BUF[0].CS.B.LENGTH = sizeof(TxData); /* # bytes to transmit w/o null */
+//	for (i=0; i<sizeof(TxData); i++) {
+//		CAN_1.BUF[0].DATA.B[i] = TxData.B[sizeof(TxData) - i - 1];      /* Data to be transmitted */
+//	}
+//	CAN_1.BUF[0].CS.B.SRR = 1;           /* Tx frame (not req'd for standard frame)*/
+//	CAN_1.BUF[0].CS.B.CODE =0xC;         /* Activate msg. buf. to transmit data frame */
+//}
 
 void initDSPI_1(void) {
 	DSPI_1.MCR.R = 0x80010001;     /* Configure DSPI_1 as master */
@@ -157,7 +165,8 @@ void initDSPI_1(void) {
 	
 	SIU.PSMI[7].R = 2;  /* Select PCR 114 for SCK */
 	SIU.PSMI[8].R = 2;  /* Select PCR 112 for SIN */
-	SIU.PSMI[9].R = 3;  /* Select PCR 115 for CS0 */
+	SIU.PSMI[9].R = 3;  /* Select PCR 115 
+ CS0 */
 }
 
 
@@ -179,8 +188,8 @@ void initADC() {
 
 void getVoltage(void) {
 	while (ADC.CDR[33].B.VALID != 1) {}; /* Wait for last scan to complete */
-	voltage0 = (1023 - ADC.CDR[32].B.CDATA); /* Read ANS0 conversion result data */
-	voltage1 = (1023 - ADC.CDR[33].B.CDATA); /* Read ANS1 conversion result data */
+	analog0 = (MAX_ANALOG - ADC.CDR[32].B.CDATA); /* Read ANS0 conversion result data */
+	analog1 = (MAX_ANALOG - ADC.CDR[33].B.CDATA); /* Read ANS1 conversion result data */
 }
 
 void initLED() {
@@ -190,9 +199,9 @@ void initLED() {
 	SIU.PCR[71].R = 0x0200;				/* Program the drive enable pin of LED4 (PE7) as output*/
 }
 
-void toLED(void) {
-	SIU.PGPDO[2].R |= 0x0f000000;		/* Disable LEDs*/
-	SIU.PGPDO[2].R &= ~(voltage1 << 18);		/* Enable LED1*/
+void initShutdownOutput() {
+	SIU.PCR[0].R = 0x0200;
+	SIU.GPDO[0].R = 0;
 }
 
 void canSetup() {
@@ -234,14 +243,14 @@ void canSetup() {
 }
 
 void convertTorque() {
-	torque = (MAX_TORQUE * voltage1) / 1023;
+	torque = (MAX_TORQUE * ((analog0 + analog1)/2)) / MAX_ANALOG;
 	torquePacket.DATA.W[0] = 0;
 	torquePacket.DATA.W[1] = 0;
 	torquePacket.DATA.H[3] = torque;
 }
 
 void convertSpeed() {
-	speed = ((MAX_SPEED * voltage1) / 1023) - 60;
+	speed = ((MAX_SPEED * ((analog0 + analog1)/2)) / MAX_ANALOG);
 	if (speed < 60) {
 		speed = 0;
 	}
@@ -271,11 +280,28 @@ void outputToLED(int32_t input) {
 	SIU.PGPDO[2].R = ~input;
 }
 
-void checkVoltage() {
-	if (voltage1 > voltage0) {
-		voltageError = (voltage1 - voltage0) * 100 / voltage0;
+void processVoltage() {
+	analog0 = analog0 - (MAX_ANALOG / 10);
+	analog1 = analog1 - (MAX_ANALOG / 10);
+	
+	if ((int16_t) analog0 < 0) {
+		analog0 = 0;
+	}
+	
+	if ((int16_t) analog1 < 1) {
+		analog1 = 0;
+	}
+	
+	if (analog1 > analog0) {
+		analogError = (analog1 - analog0) * 100 / analog0;
 	} else {
-		voltageError = (voltage0 - voltage1) * 100 / voltage1;
+		analogError = (analog0 - analog1) * 100 / analog1;
+	}
+	
+	if (analogError > 10) {
+		imp_count++;
+	} else {
+		imp_count = 0;
 	}
 }
 
@@ -295,6 +321,9 @@ void canSend(CanPacket txPacket) {
 }
 
 
+
+
+
 void main (void) {
 	vuint32_t i = 0;
 	initModesAndClock(); /* Initialize mode entries and system clock */
@@ -302,6 +331,8 @@ void main (void) {
 	initPeriClkGen(); /* Initialize peripheral clock generation for DSPIs */
 	initADC();
 	initLED();
+	
+	initShutdownOutput();
 	
 	//can stuff
 	initPeriClkGen();            /* Initize peripheral clock generation for DSPIs */
@@ -324,11 +355,15 @@ void main (void) {
 	torquePacket.ID = TORQUE_ID;
 	speedPacket.ID = SPEED_ID;
 	
+	shutdownPacket.ID = SHUTDOWN_ID;
+	shutdownPacket.DATA.W[0] = 0xDEADBEEF;
+	shutdownPacket.DATA.W[1] = 0xDEADBEEF;
+	
 	
 	/* Loop forever */
 	for (;;) 
 	{
-		if (i % 100000 == 0) {
+		if (i % LOOP_TIME == 0) {
 			switch (currentState) {
 				case NOT_ENERGIZED:
 					if (!energizeButton && prevEnergizeButton) {
@@ -344,11 +379,11 @@ void main (void) {
 						currentState = NOT_ENERGIZED;
 					} else {
 						getVoltage();
-						checkVoltage();
-						if (voltageError < 10) {
+						processVoltage();
+						if (imp_count < 2 || ((analog0 + analog1)/2) < 20) {
 							convertSpeed();
 							convertTorque();
-							outputToLED(voltage1 << 18);
+							outputToLED(((analog0 + analog1)/2) << 18);
 							if (MODE == 0) {
 								canSend(speedPacket);
 							} else {
@@ -363,6 +398,8 @@ void main (void) {
 					break;
 				case SHUTDOWN:
 					outputToLED(0);
+					canSend(shutdownPacket);
+					SIU.GPDO[0].R = 1;
 					break;
 			}
 			prevEnergizeButton = energizeButton;				

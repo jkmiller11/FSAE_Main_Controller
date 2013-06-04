@@ -11,13 +11,33 @@
 #define MAX_TORQUE 200
 #define MAX_SPEED 600
 
+#define ENERGIZE_ID 849
+#define DEENERGIZE_ID 850
+#define TORQUE_ID 848
+#define SPEED_ID 592
+
 //Enumeration of states
 enum myState {NOT_ENERGIZED = 0, ENERGIZED = 1, SHUTDOWN = 2};
 typedef enum myState state;
 
+typedef struct {
+	uint32_t ID;
+	
+	union {
+		uint8_t B[8];      /* Data buffer in Bytes (8 bits) */
+		uint16_t H[4];     /* Data buffer in Half-words (16 bits) */
+		uint32_t W[2];     /* Data buffer in words (32 bits) */
+		uint32_t R[2];     /* Data buffer in words (32 bits) */
+	} DATA;
+} CanPacket;
+
+CanPacket energizePacket;
+CanPacket deenergizePacket;
+CanPacket torquePacket;
+CanPacket speedPacket;
+
+
 state currentState =  NOT_ENERGIZED;
-
-
 uint16_t voltage0, voltage1;
 int16_t torque;
 int16_t speed;
@@ -215,6 +235,9 @@ void canSetup() {
 
 void convertTorque() {
 	torque = (MAX_TORQUE * voltage1) / 1023;
+	torquePacket.DATA.W[0] = 0;
+	torquePacket.DATA.W[1] = 0;
+	torquePacket.DATA.H[3] = torque;
 }
 
 void convertSpeed() {
@@ -222,6 +245,9 @@ void convertSpeed() {
 	if (speed < 60) {
 		speed = 0;
 	}
+	speedPacket.DATA.W[0] = 0;
+	speedPacket.DATA.W[1] = 0;
+	speedPacket.DATA.H[3] = speed;
 }
 
 void initEnergizeButton() {
@@ -242,7 +268,7 @@ void getEnergizeButton() {
 }
 
 void outputToLED(int32_t input) {
-	SIU.PGPDO[2].R = input;
+	SIU.PGPDO[2].R = ~input;
 }
 
 void checkVoltage() {
@@ -252,6 +278,22 @@ void checkVoltage() {
 		voltageError = (voltage0 - voltage1) * 100 / voltage1;
 	}
 }
+
+void canSend(CanPacket txPacket) {
+	uint8_t	i;
+	
+	CAN_1.BUF[0].CS.B.IDE = 0;           /* Use standard ID length */
+	CAN_1.BUF[0].ID.B.STD_ID = txPacket.ID;
+
+	CAN_1.BUF[0].CS.B.RTR = 0;           /* Data frame, not remote Tx request frame */
+	CAN_1.BUF[0].CS.B.LENGTH = sizeof(txPacket.DATA); /* # bytes to transmit w/o null */
+	for (i=0; i<sizeof(txPacket.DATA); i++) {
+		CAN_1.BUF[0].DATA.B[i] = txPacket.DATA.B[sizeof(txPacket.DATA) - i - 1];      /* Data to be transmitted */
+	}
+	CAN_1.BUF[0].CS.B.SRR = 1;           /* Tx frame (not req'd for standard frame)*/
+	CAN_1.BUF[0].CS.B.CODE =0xC;         /* Activate msg. buf. to transmit data frame */
+}
+
 
 void main (void) {
 	vuint32_t i = 0;
@@ -271,68 +313,61 @@ void main (void) {
 	
 	initEnergizeButton();
 	
+	energizePacket.ID = ENERGIZE_ID;
+	energizePacket.DATA.W[0] = 0xFFFFFFFF;
+	energizePacket.DATA.W[1] = 0xFFFFFFFF;
+	
+	deenergizePacket.ID = DEENERGIZE_ID;
+	deenergizePacket.DATA.W[0] = 0x00000000;
+	deenergizePacket.DATA.W[1] = 0x00000000;
+	
+	torquePacket.ID = TORQUE_ID;
+	speedPacket.ID = SPEED_ID;
+	
+	
 	/* Loop forever */
 	for (;;) 
 	{
-		switch (currentState) {
-			case NOT_ENERGIZED:
-				if (!energizeButton && prevEnergizeButton) {
-					//send can energize signal
-					//
-					currentState = ENERGIZED;
-				} else {
-					outputToLED(15 << 24);
-				}
-				break;
-			case ENERGIZED:
-				if (!energizeButton && prevEnergizeButton) {
-					//send can deenergize signal
-					//
-					currentState = NOT_ENERGIZED;
-				} else {
-					getVoltage();
-					checkVoltage();
-					if (voltageError < 10) {
-						convertSpeed();
-						convertTorque();
-						outputToLED(voltage1 << 18);
-						//send can torque signal
-						//
+		if (i % 100000 == 0) {
+			switch (currentState) {
+				case NOT_ENERGIZED:
+					if (!energizeButton && prevEnergizeButton) {
+						canSend(energizePacket);
+						currentState = ENERGIZED;
 					} else {
-						currentState = SHUTDOWN;
-						//open shutdown circuit
-						//send can deenergize signal
+						outputToLED(15 << 24);
 					}
-				}
-				break;
-			case SHUTDOWN:
-				// this should be changed to something else
-				if (!energizeButton && prevEnergizeButton) {
-					//send can energize signal
-					//
-					currentState = ENERGIZED;
-				} else {
+					break;
+				case ENERGIZED:
+					if (!energizeButton && prevEnergizeButton) {
+						canSend(deenergizePacket);
+						currentState = NOT_ENERGIZED;
+					} else {
+						getVoltage();
+						checkVoltage();
+						if (voltageError < 10) {
+							convertSpeed();
+							convertTorque();
+							outputToLED(voltage1 << 18);
+							if (MODE == 0) {
+								canSend(speedPacket);
+							} else {
+								canSend(torquePacket);
+							}
+						} else {
+							currentState = SHUTDOWN;
+							//open shutdown circuit
+							canSend(deenergizePacket);
+						}
+					}
+					break;
+				case SHUTDOWN:
 					outputToLED(0);
-				}
-				break;
+					break;
+			}
+			prevEnergizeButton = energizeButton;				
+			getEnergizeButton();
 		}
-		prevEnergizeButton = energizeButton;
-		//outputToLED(currentState << 24);
-//		if (i % 100000 == 0) {
-//			getVoltage();
-//			toLED();
-//			if (MODE == 1) {
-//				convertTorque();
-//			} else {
-//				convertSpeed();
-//			}
-//			TransmitMsg();
-//		}
-			
-		
-		getEnergizeButton();
-		
-		//SIU.PGPDO[2].R = ~(energizeButton << 24);
 		i++;
 	}
 }

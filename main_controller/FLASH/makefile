@@ -2,7 +2,7 @@
 # Automatically-generated file. Do not edit!
 ################################################################################
 
-#Progress monitor hint: 8
+#Progress monitor hint: 11
 first : all
 -include ../makefile.init
 
@@ -79,7 +79,7 @@ all: warning-messages explicit-dependencies main_controller.elf
 # Tool invocations
 main_controller.elf: $(OBJS) $(USER_OBJS) ../Project_Settings/Linker_Files/MPC5604B_FLASH.lcf
 	@echo 'Building target: $@'
-	@echo 'Executing target #9 $@'
+	@echo 'Executing target #12 $@'
 	@echo 'Invoking: PowerPC Linker'
 	"$(PAToolsDirEnv)/mwldeppc" -o "main_controller.elf" @@"main_controller.args"  $(USER_OBJS_QUOTED)
 	@echo 'Finished building target: $@'

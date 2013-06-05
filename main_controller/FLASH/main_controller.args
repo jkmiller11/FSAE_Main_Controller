@@ -2,10 +2,13 @@
 "./Project_Settings/Startup_Code/MPC5604B_init_flash_c.obj"
 "./Project_Settings/Startup_Code/MPC5604B_Startup_c.obj"
 "./Project_Settings/Startup_Code/MPC5604B_HWInit_c.obj"
+"./Sources/sys_init_c.obj"
 "./Sources/main_c.obj"
 "./Sources/ivor_branch_table_c.obj"
 "./Sources/IntcInterrupts_c.obj"
 "./Sources/Exceptions_c.obj"
+"./Sources/CAN_c.obj"
+"./Sources/ADC_c.obj"
 -sym dwarf-2
 -sym full
 -msgstyle parseable

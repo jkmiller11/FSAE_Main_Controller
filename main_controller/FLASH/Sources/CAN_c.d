@@ -1,8 +1,9 @@
-Sources/main_c.obj: C:\Users\Jake\ Miller\Documents\GitHub\FSAE_Main_Controller\main_controller\Sources\main.c \
+Sources/CAN_c.obj: C:\Users\Jake\ Miller\Documents\GitHub\FSAE_Main_Controller\main_controller\Sources\CAN.c \
 	C:\Freescale\CW\ MCU\ v10.4\MCU\PA_Support\ewl\EWL_C\include\lib_ewl.prefix \
 	C:\Freescale\CW\ MCU\ v10.4\MCU\PA_Support\ewl\EWL_C\include\common.prefix \
 	C:\Freescale\CW\ MCU\ v10.4\MCU\PA_Support\ewl\EWL_C\include\ewl_c_version.h \
 	C:\Users\Jake\ Miller\Documents\GitHub\FSAE_Main_Controller\main_controller\Prefix\MPC5604B_FLASH_VLE.prefix \
+	C:\Users\Jake\ Miller\Documents\GitHub\FSAE_Main_Controller\main_controller\Project_Headers\CAN.h \
 	C:\Users\Jake\ Miller\Documents\GitHub\FSAE_Main_Controller\main_controller\Project_Headers\MPC5604B.h \
 	C:\Users\Jake\ Miller\Documents\GitHub\FSAE_Main_Controller\main_controller\Project_Headers\typedefs.h \
 	C:\Freescale\CW\ MCU\ v10.4\MCU\PA_Support\ewl\EWL_C\include\stdint.h \
@@ -12,8 +13,4 @@ Sources/main_c.obj: C:\Users\Jake\ Miller\Documents\GitHub\FSAE_Main_Controller\
 	C:\Freescale\CW\ MCU\ v10.4\MCU\PA_Support\ewl\EWL_C\include\os_enum.h \
 	C:\Freescale\CW\ MCU\ v10.4\MCU\PA_Support\ewl\EWL_C\include\cstdint \
 	C:\Freescale\CW\ MCU\ v10.4\MCU\PA_Support\ewl\EWL_C\include\limits_api.h \
-	C:\Freescale\CW\ MCU\ v10.4\MCU\PA_Support\ewl\EWL_C\include\ewl_lib_ext1.h \
-	C:\Users\Jake\ Miller\Documents\GitHub\FSAE_Main_Controller\main_controller\Project_Headers\sys_init.h \
-	C:\Users\Jake\ Miller\Documents\GitHub\FSAE_Main_Controller\main_controller\Project_Headers\CAN.h \
-	C:\Users\Jake\ Miller\Documents\GitHub\FSAE_Main_Controller\main_controller\Project_Headers\ADC.h \
-	C:\Users\Jake\ Miller\Documents\GitHub\FSAE_Main_Controller\main_controller\Project_Headers\definitions.h 
+	C:\Freescale\CW\ MCU\ v10.4\MCU\PA_Support\ewl\EWL_C\include\ewl_lib_ext1.h 

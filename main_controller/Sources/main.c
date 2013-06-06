@@ -61,16 +61,18 @@ void initShutdownOutput() {
 
 
 void convertTorque() {
-	torque = (MAX_TORQUE * ((torque0 + torque1)/2)) / MAX_ANALOG;
+	torque = (MAX_TORQUE * torque0) / MAX_ANALOG;
 	torquePacket.DATA.W[0] = 0;
 	torquePacket.DATA.W[1] = 0;
 	torquePacket.DATA.H[3] = torque;
 }
 
 void convertSpeed() {
-	speed = ((MAX_SPEED * ((torque0 + torque1)/2)) / MAX_ANALOG);
+	speed = ((MAX_SPEED * torque0) / MAX_ANALOG);
 	if (speed < 60) {
 		speed = 0;
+	} else {
+		speed = speed - 60;
 	}
 	speedPacket.DATA.W[0] = 0;
 	speedPacket.DATA.W[1] = 0;
@@ -90,8 +92,6 @@ void initEnergizeButton() {
 
 void getEnergizeButton() {
 	energizeButton = SIU.GPDI[64].R;
-	//SIU.PGPDO[2].R |= 0x0f000000;
-	//SIU.PGPDO[2].R &= ~(energizeButton << 24);
 }
 
 void toLED(uint8_t input) {
@@ -186,7 +186,7 @@ void main (void) {
 				} else {
 					getADC();
 					processAnalog();
-					if (imp_count < 2 || ((torque0 + torque1)/2) < 20) {
+					if (imp_count < 2 || torque0 < 20) {
 						convertSpeed();
 						convertTorque();
 						if (MODE == 0) {
@@ -207,6 +207,8 @@ void main (void) {
 		}
 		
 		toLED(currentState);
+		
+		//canReceive();
 		
 		delay();
 		i++;

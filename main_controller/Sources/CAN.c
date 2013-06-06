@@ -80,12 +80,17 @@ void initCAN_1 (void) {
 	uint8_t   i;
 	
 	CAN_1.MCR.R = 0x5000003F;       /* Put in Freeze Mode & enable all 64 msg bufs */
-	CAN_1.CR.R = 0x00DB0006;        /* Configure for 8MHz OSC, 100KHz bit time */
+	CAN_1.CR.R = 0x00DB0006;        /* Configure for 8MHz OSC, 500KHz bit time */
 	for (i=0; i<64; i++) {
 		CAN_1.BUF[i].CS.B.CODE = 0;   /* Inactivate all message buffers */
-	} 
-	CAN_1.BUF[0].CS.B.CODE = 8;     /* Message Buffer 0 set to TX INACTIVE */
+	}
 	
+	CAN_1.BUF[4].CS.B.IDE = 0; /* MB 4 will look for a standard ID */
+	CAN_1.BUF[4].ID.B.STD_ID = 555; /* MB 4 will look for ID = 555 */
+	CAN_1.BUF[4].CS.B.CODE = 4; /* MB 4 set to RX EMPTY */
+	CAN_1.RXGMASK.B.MI = 0x1FFFFFFF; /* Global acceptance mask */
+	
+	CAN_1.BUF[0].CS.B.CODE = 8;     /* Message Buffer 0 set to TX INACTIVE */
 	SIU.PCR[42].R = 0x0624;         /* MPC56xxB: Config port C10 as CAN1TX, open drain */
 	SIU.PCR[43].R = 0x0100;         /* MPC56xxB: Configure port C11 as CAN1RX */
 	SIU.PSMI[0].R = 0x01;           /* MPC56xxB: Select PCR 43 for CAN1RX Input */  
@@ -109,9 +114,14 @@ void canSend(CanPacket txPacket) {
 }
 
 
-void RecieveMsg (void) {
+void canReceive (void) {
 	uint8_t j;
 	uint32_t dummy;
+	
+	CAN_1.BUF[4].CS.B.IDE = 0; /* MB 4 will look for a standard ID */
+	CAN_1.BUF[4].ID.B.STD_ID = 555; /* MB 4 will look for ID = 555 */
+	CAN_1.BUF[4].CS.B.CODE = 4; /* MB 4 set to RX EMPTY */
+	
 	while (CAN_1.IFRL.B.BUF04I == 0) {}; /* Wait for CAN 1 MB 4 flag */
 	RxCODE = CAN_1.BUF[4].CS.B.CODE; /* Read CODE, ID, LENGTH, DATA, TIMESTAMP */
 	RxID = CAN_1.BUF[4].ID.B.STD_ID;

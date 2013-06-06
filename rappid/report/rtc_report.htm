@@ -1,0 +1,102 @@
+<HTML>
+<HEAD>
+<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'>
+<meta name='Author' content='Freescale Semiconductor'>
+</HEAD>
+<BODY>
+<b><center><font face='arial'  size='5' align=>Device Settings for: RTC  </font></center></b> 
+<hr size='1' color='#3366FF'>
+<font face='arial'><h3><font face='Arial'>RTC Configuration</font></h3><br>RTC is <u><font face='arial' color='blue'>Disabled </font></u> and RTC Compare Value is <u><font face='arial' color='blue'>0</font></u> (<u><font face='arial' color='blue'>0 µs</font></u>) and API Compare Value is <u><font face='arial' color='blue'>0</font></u> (<u><font face='arial' color='blue'>0 µs</font></u>)<br><br> Final Clock: <HTML>Final Clock = Clock Source Frequency / Divider<BR>The final clock has been displayed upto 6-decimal places.</HTML><br> Final Clock = <u><font face='arial' color='blue'>32 KHz OSC Divided</font></u> / <u><font face='arial' color='blue'>1</font></u><br> Final Clock = <u><font face='arial' color='blue'>32</font></u><u><font face='arial' color='blue'> KHz</font></u><br><br>RTC Timeout = (RTC Compare Value * 1024) / Final Clock<br> RTC Timeout =<u><font face='arial' color='blue'>0</font></u> * 1024 / <u><font face='arial' color='blue'>32</font></u><br> RTC Timeout =<u><font face='arial' color='blue'>0 µs</font></u><br><br>API Timeout = API Compare Value / Final Clock<br> API Timeout =<u><font face='arial' color='blue'>0</font></u> / <u><font face='arial' color='blue'>32</font></u><br> API Timeout =<u><font face='arial' color='blue'>0 µs</font></u><br><br>RTC Clock Configuration is: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Clock selected for RTC is  <u><font face='arial' color='blue'>32 KHz OSC Divided</font></u><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Divide by 512 is  <u><font face='arial' color='blue'>Disabled</font></u><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Divide by 32 is  <u><font face='arial' color='blue'>Disabled</font></u><br><br> Following is the interrupt status: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RTC Interrupt is  <u><font face='arial' color='blue'>Disabled</font></u><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Counter Rollover Interrupt is  <u><font face='arial' color='blue'>Disabled</font></u><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Autonomous Periodic Interrupt is  <u><font face='arial' color='blue'>Disabled</font></u><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; API Interrupt is  <u><font face='arial' color='blue'>Disabled</font></u><br><br><br><br><TABLE  cellpadding='2' border='2' bordercolor='#000000bgcolor= '#FFFFFF' ' width='100%' align = 'center' >
+<TR><TD colspan="1" bgcolor= "#CCFFCC"><b><center><h3>RTCC</h3></center></b></TD></TR><TR>
+<TD ><center><input type='image' SRC='Images/Register_Images/RTC/RTCC.jpg'></center></TD>
+</TR>
+</TABLE>
+<TABLE  cellpadding='2' border='2' bordercolor='#000000bgcolor= '#FFFFFF' ' width='100%' align = 'center' >
+<TR><TD colspan="2" bgcolor= "#FFFFFF"><center><font face='arial'>RTC Control Register</font> </center></TD></TR><TR>
+<TD ><font face='arial'><b><font face='Arial'>Address : Offset</font></b></font> </TD>
+<TD ><font face='arial'>0xC3FEC004 : 0x4</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'><b><font face='Arial'>Value (Current : Reset)</font></b></font> </TD>
+<TD ><font face='arial'>0x00000000 : 0x00000000</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'><b><font face='Arial'>Description</font></b></font> </TD>
+<TD ><font face='arial'>RTC Control Register</font> </TD>
+</TR>
+</TABLE>
+<TABLE  cellpadding='2' border='2' bordercolor='#000000bgcolor= '#FFFFFF' ' width='100%' align = 'center' >
+<TR>
+<TD align='center' width='10%' ><b><center><font face='arial' color='#000000' size='2'>Bit</font></center></b>  </TD>
+<TD align='center' width='10%' ><b><center><font face='arial' color='#000000' size='2'>Field</font></center></b>  </TD>
+<TD align='center' width='20%' ><b><center><font face='arial' color='#000000' size='2'>Value</font></center></b>  </TD>
+<TD align='left' width='60%' ><b><center><font face='arial' color='#000000' size='2'>Description</font></center></b>  </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>0</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>CNTN</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>0</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>RTC Counter is Disabled</font> </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>1</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>RTCIE</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>0</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>RTC Interrupt is Disabled</font> </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>2</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>FRZEN</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>0</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>Debug Mode Control</font> </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>3</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>ROVREN</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>0</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>Counter Rollover Interrupt is Disabled</font> </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>4-15</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>RTCVAL[0:11]</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>000000000000</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>RTC Compare Value is 0</font> </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>16</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>APIEN</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>0</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>Autonomous Periodic Interrupt is Disabled</font> </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>17</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>APIIE</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>0</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>API Interrupt is Disabled</font> </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>18-19</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>CLKSEL[0-1]</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>00</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>Clock Select is 32 KHz OSC Divided</font> </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>20</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>DIV512EN</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>0</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>Divide by 512 is Disabled</font> </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>21</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>DIV32EN</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>0</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>Divide by 32 is Disabled</font> </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>22-31</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>APIVAL [0-9]</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>0000000000</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>API Compare Value is 0</font> </TD>
+</TR>
+</TABLE>
+</font> </BODY></HTML>

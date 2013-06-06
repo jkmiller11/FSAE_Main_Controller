@@ -1,0 +1,868 @@
+<HTML>
+<HEAD>
+<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'>
+<meta name='Author' content='Freescale Semiconductor'>
+</HEAD>
+<BODY>
+<b><center><font face='arial'  size='5' align=>INTC Priority Configuration  </font></center></b> 
+<hr size='1' color='#3366FF'>
+<font face='arial'>The table below depicts the priority for <b>all interrupt sources</b>. The interrupts are arranged as shown in the Interrupt Summary Table in the MPC5604B manual. Please refer to that table for more details.To view the interrupt priorities on a peripheral basis either return to the GUI and select the appropriate Quick Report or select the desired peripheral from the report menu.</font> <br><br><center><h3><font face='Arial'>Interrupt Priority Table</font></h3></center>
+<br><TABLE  cellpadding='2' border='2' bordercolor='#000000bgcolor= '#FFFFFF' ' width='70%' align = 'center' >
+<TR>
+<TD ><center><h3><font face='Arial'>Interrupt</font></h3></center>
+</TD>
+<TD ><center><h3><font face='Arial'>Priority</font></h3></center>
+</TD>
+<TD ><center><h3><font face='Arial'>Core</font></h3></center>
+</TD>
+<TD ><center><h3><font face='Arial'>Function</font></h3></center>
+</TD>
+</TR>
+<TR>
+<TD ><font face='arial'>ME Safe Mode Interrupt</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>ME Mode Transition Interrupt</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>ME Invalid Mode Interrupt</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>ME Invalid Mode Config</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>SIU External IRQ 0-7</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>SIU External IRQ 8-15</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>SWT Timeout</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>STM Channel 0</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>STM Channel 1</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>STM Channel 2</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>STM Channel 3</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>EMIOS_0_GFR[F0,F1]</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>EMIOS_0_GFR[F2,F3]</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>EMIOS_0_GFR[F4,F5]</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>EMIOS_0_GFR[F6,F7]</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>EMIOS_0_GFR[F8,F9]</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>EMIOS_0_GFR[F10,F11]</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>EMIOS_0_GFR[F12,F13]</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>EMIOS_0_GFR[F14,F15]</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>EMIOS_0_GFR[F16,F17]</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>EMIOS_0_GFR[F18,F19]</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>EMIOS_0_GFR[F20,F21]</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>EMIOS_0_GFR[F22,F23]</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>EMIOS_0_GFR[F24,F25]</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>EMIOS_0_GFR[F26,F27]</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>EMIOS_1_GFR[F0,F1]</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>EMIOS_1_GFR[F2,F3]</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>EMIOS_1_GFR[F4,F5]</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>EMIOS_1_GFR[F6,F7]</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>EMIOS_1_GFR[F8,F9]</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>EMIOS_1_GFR[F10,F11]</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>EMIOS_1_GFR[F12,F13]</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>EMIOS_1_GFR[F14,F15]</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>EMIOS_1_GFR[F16,F17]</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>EMIOS_1_GFR[F18,F19]</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>EMIOS_1_GFR[F20,F21]</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>EMIOS_1_GFR[F22,F23]</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>EMIOS_1_GFR[F24,F25]</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>EMIOS_1_GFR[F26,F27]</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>ECC Double Bit Detection</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>ECC Single Bit Correction</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>PIT Channel 0</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>PIT Channel 1</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>PIT Channel 2</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>PIT Channel 3</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>PIT Channel 4</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>PIT Channel 5</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>ADC_0_EOC</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>ADC_0_WD</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>Functional and destructive reset alternate event interrupt (ipi_int)</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>LINFlex_0_RXI</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>LINFlex_0_TXI</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>LINFlex_0_ERR</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>LINFlex_1_RXI</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>LINFlex_1_TXI</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>LINFlex_1_ERR</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>LINFlex_2_RXI</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>LINFlex_2_TXI</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>LINFlex_2_ERR</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>LINFlex_3_RXI</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>LINFlex_3_TXI</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>LINFlex_3_ERR</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>DSPI_0_SR[TFUF] DSPI_SR[RFOF]</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>DSPI_0_SR[EOQF]</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>DSPI_0_SR[TFFF]</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>DSPI_0_SR[TCF]</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>DSPI_0_SR[RFDF]</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>DSPI_1_SR[TFUF] DSPI_SR[RFOF]</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>DSPI_1_SR[EOQF]</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>DSPI_1_SR[TFFF]</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>DSPI_1_SR[TCF]</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>DSPI_1_SR[RFDF]</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>DSPI_2_SR[TFUF] [DSPI_SR[RFOF]</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>DSPI_2_SR[EOQF]</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>DSPI_2_SR[TFFF]</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>DSPI_2_SR[TCF]</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>DSPI_2_SR[RFDF]</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>I2C_SR[IBAL] I2C_SR[TCF] I2C_SR[IAAS]</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>RTC</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>API</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FlexCAN_0_ESR[ERR_INT]</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FlexCAN_0_ESR_BOFF | Tx_Warning | Rx_Warning</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FlexCAN_0_BUF_00_03</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FlexCAN_0_BUF_04_07</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FlexCAN_0_BUF_08_11</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FlexCAN_0_BUF_12_15</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FlexCAN_0_BUF_16_31</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FlexCAN_0_BUF_32_63</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FlexCAN_1_ESR[ERR_INT]</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FlexCAN_1_ESR_BOFF | Tx_Warning | Rx_Warning</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FlexCAN_1_BUF_00_03</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FlexCAN_1_BUF_04_07</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FlexCAN_1_BUF_08_11</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FlexCAN_1_BUF_12_15</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FlexCAN_1_BUF_16_31</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FlexCAN_1_BUF_32_63</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FlexCAN_2_[ERR_INT]</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FlexCAN_2_ESR_BOFF | Tx_Warning | Rx_Warning</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FlexCAN_2_BUF_00_03</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FlexCAN_2_BUF_04_07</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FlexCAN_2_BUF_08_11</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FlexCAN_2_BUF_12_15</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FlexCAN_2_BUF_16_31</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FlexCAN_2_BUF_32_63</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FlexCAN_3_ESR</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FlexCAN_3_ESR_BOFF | Tx Warning | Rx_Warning</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FlexCAN_3_BUF_0_3</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FlexCAN_3_BUF_4_7</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FlexCAN_3_BUF_8_11</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FlexCAN_3_BUF_12_15</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FlexCAN_3_BUF_16_31</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FlexCAN_3_BUF_32_63</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FlexCAN_4_ESR</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FlexCAN_4_ESR_BOFF | Tx_warning | Rx_Warning </font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FlexCAN_4_BUF_0_3</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FlexCAN_4_BUF_4_7</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FlexCAN_4_BUF_8_11</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FlexCAN_4_BUF_12_15</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FlexCAN_4_BUF_16_31</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FlexCAN_4_BUF_32_63</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FlexCAN_5_ESR</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FlexCAN_5_ESR_BOFF |  Tx_warning | Rx_Warning</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FlexCAN_5_BUF_0_3</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FlexCAN_5_BUF_4_7</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FlexCAN_5_BUF_8_11</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FlexCAN_5_BUF_12_15</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FlexCAN_5_BUF_16_31</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FlexCAN_5_BUF_32_63</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>Software settable Clear flag 0</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>Software settable Clear flag 1</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>Software settable Clear flag 2</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>Software settable Clear flag 3</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>Software settable Clear flag 4</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>Software settable Clear flag 5</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>Software settable Clear flag 6</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>Software settable Clear flag 7</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>Platform Flash combined</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>WakeUp_IRQ_0</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>WakeUp_IRQ_1</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>WakeUp_IRQ_2</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>XOSC counter expired</font> </TD>
+<TD ><font face='arial'>0</font> </TD>
+<TD ><font face='arial'>e200z0</font> </TD>
+<TD ><font face='arial'><font color='gray'><i>dummy handler</i></font></font> </TD>
+</TR>
+</TABLE>
+<br></BODY></HTML>

@@ -31,6 +31,6 @@ void canSetup();
 void ReadDataDSPI_1();
 void initCAN_1();
 void canSend(CanPacket txPacket);
-void RecieveMsg();
+void canReceive();
 
 #endif /* CAN_H_ */

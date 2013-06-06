@@ -1,0 +1,834 @@
+<HTML>
+<HEAD>
+<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'>
+<meta name='Author' content='Freescale Semiconductor'>
+</HEAD>
+<BODY>
+<b><center><font face='arial'  size='5' align=>Device Settings for: System Clock Timers  </font></center></b> 
+<hr size='1' color='#3366FF'>
+<br><center><h3><font face='Arial'>System Clock Timer Register</font></h3></center>
+
+<TABLE  cellpadding='2' border='2' bordercolor='#000000bgcolor= '#FFFFFF' ' width='100%' align = 'center' >
+<TR>
+<TD ><b><center><font face='arial' color='#000000' size='2'>Address</font></center></b>  </TD>
+<TD ><b><center><font face='arial' color='#000000' size='2'>Register</font></center></b>  </TD>
+<TD ><b><center><font face='arial' color='#000000' size='2'>Register Value</font></center></b>  </TD>
+<TD ><b><center><font face='arial' color='#000000' size='2'>Register Description</font></center></b>  </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FDC000&nbsp; </font> </TD>
+<TD ><font face='arial'>ME_GS</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x0C1F0010 </b></font></TD>
+<TD ><font face='arial'>Global Status</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FDC004&nbsp; </font> </TD>
+<TD ><font face='arial'>ME_MCTL</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x3000A50F </b></font></TD>
+<TD ><font face='arial'>Mode Control</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FDC00C&nbsp; </font> </TD>
+<TD ><font face='arial'>ME_IS</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>Interrupt Status</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FDC014&nbsp; </font> </TD>
+<TD ><font face='arial'>ME_IMTS</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>Invalid Mode Transition Status</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FDC02C&nbsp; </font> </TD>
+<TD ><font face='arial'>ME_DRUN_MC</font> </TD>
+<TD ><font face='arial'>0x001F0030</font> </TD>
+<TD ><font face='arial'>Mode Configuration Register</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FDC060&nbsp; </font> </TD>
+<TD ><font face='arial'>ME_PS0</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>Peripheral Status 0</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FDC064&nbsp; </font> </TD>
+<TD ><font face='arial'>ME_PS1</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>Peripheral Status 1</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FDC068&nbsp; </font> </TD>
+<TD ><font face='arial'>ME_PS2</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>Peripheral Status 2</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FDC06C&nbsp; </font> </TD>
+<TD ><font face='arial'>ME_PS3</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>Peripheral Status 3</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FE0000&nbsp; </font> </TD>
+<TD ><font face='arial'>CGM_OSC_CTL</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00800000 </b></font></TD>
+<TD ><font face='arial'>Crystal Oscillator Control Register</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FE0040&nbsp; </font> </TD>
+<TD ><font face='arial'>CGM_LPOSC_CTL</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00800000 </b></font></TD>
+<TD ><font face='arial'>Crystal Oscillator Control Register</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FE0060&nbsp; </font> </TD>
+<TD ><font face='arial'>CGM_RC_CTL</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>RC Oscillator Control Register</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FE0080&nbsp; </font> </TD>
+<TD ><font face='arial'>CGM_LPRC_CTL</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000310 </b></font></TD>
+<TD ><font face='arial'>Low Power RC Control Register</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FE00A0&nbsp; </font> </TD>
+<TD ><font face='arial'>CGM_FMPLL_CR</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x05400000 </b></font></TD>
+<TD ><font face='arial'>FMPLL Control Register</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FE00A4&nbsp; </font> </TD>
+<TD ><font face='arial'>CGM_FMPLL_MR</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>FMPLL Modulation Register</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FE0104&nbsp; </font> </TD>
+<TD ><font face='arial'>CMU_0_FDR</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>Frequency Display Register</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FE0110&nbsp; </font> </TD>
+<TD ><font face='arial'>CMU_0_ISR</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>FMPLL0 Interrupt Status Register</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FE0370&nbsp; </font> </TD>
+<TD ><font face='arial'>CGM_OC_EN</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>Output Clock Enable Register</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FE0374&nbsp; </font> </TD>
+<TD ><font face='arial'>CGM_OCDS_SC</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>Output Clock Division Select Register</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FE0378&nbsp; </font> </TD>
+<TD ><font face='arial'>CGM_SC_SS</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>System Clock Select Status Register</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FE037C&nbsp; </font> </TD>
+<TD ><font face='arial'>CGM_SC_DC0</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x80 </b></font></TD>
+<TD ><font face='arial'>System Clock Divider Configuration Registers</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FE037D&nbsp; </font> </TD>
+<TD ><font face='arial'>CGM_SC_DC1</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x80 </b></font></TD>
+<TD ><font face='arial'>System Clock Divider Configuration Registers</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FE037E&nbsp; </font> </TD>
+<TD ><font face='arial'>CGM_SC_DC2</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x80 </b></font></TD>
+<TD ><font face='arial'>System Clock Divider Configuration Registers</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FDC008&nbsp; </font> </TD>
+<TD ><font face='arial'>ME_ME</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x0000001D </b></font></TD>
+<TD ><font face='arial'>Mode Enable</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FDC010&nbsp; </font> </TD>
+<TD ><font face='arial'>ME_IM</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>Interrupt Mask</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FDC020&nbsp; </font> </TD>
+<TD ><font face='arial'>ME_RESET_MC</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x001F0010 </b></font></TD>
+<TD ><font face='arial'>RESET Mode Configuration</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FDC024&nbsp; </font> </TD>
+<TD ><font face='arial'>ME_TEST_MC</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x001F0010 </b></font></TD>
+<TD ><font face='arial'>TEST Mode Configuration</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FDC028&nbsp; </font> </TD>
+<TD ><font face='arial'>ME_SAFE_MC</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x009F0010 </b></font></TD>
+<TD ><font face='arial'>SAFE Mode Configuration</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FDC030&nbsp; </font> </TD>
+<TD ><font face='arial'>ME_RUN0_MC</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x001F0010 </b></font></TD>
+<TD ><font face='arial'>RUN0 Mode Configuration</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FDC034&nbsp; </font> </TD>
+<TD ><font face='arial'>ME_RUN1_MC</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x001F0010 </b></font></TD>
+<TD ><font face='arial'>RUN1 Mode Configuration</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FDC038&nbsp; </font> </TD>
+<TD ><font face='arial'>ME_RUN2_MC</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x001F0010 </b></font></TD>
+<TD ><font face='arial'>RUN2 Mode Configuration</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FDC03C&nbsp; </font> </TD>
+<TD ><font face='arial'>ME_RUN3_MC</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x001F0010 </b></font></TD>
+<TD ><font face='arial'>RUN3 Mode Configuration</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FDC040&nbsp; </font> </TD>
+<TD ><font face='arial'>ME_HALT0_MC</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x001A0010 </b></font></TD>
+<TD ><font face='arial'>HALT0 Mode Configuration</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FDC048&nbsp; </font> </TD>
+<TD ><font face='arial'>ME_STOP0_MC</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00150010 </b></font></TD>
+<TD ><font face='arial'>STOP0 Mode Configuration</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FDC054&nbsp; </font> </TD>
+<TD ><font face='arial'>ME_STANDBY0_MC</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x0085001F </b></font></TD>
+<TD ><font face='arial'>STANDBY0 Mode Configuration</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FDC080&nbsp; </font> </TD>
+<TD ><font face='arial'>ME_RUN_PC0</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>Run Peripheral Configuration 0</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FDC084&nbsp; </font> </TD>
+<TD ><font face='arial'>ME_RUN_PC1</font> </TD>
+<TD ><font face='arial'>0x000000FE</font> </TD>
+<TD ><font face='arial'>Run Peripheral Configuration 1</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FDC088&nbsp; </font> </TD>
+<TD ><font face='arial'>ME_RUN_PC2</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>Run Peripheral Configuration 2</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FDC08C&nbsp; </font> </TD>
+<TD ><font face='arial'>ME_RUN_PC3</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>Run Peripheral Configuration 3</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FDC090&nbsp; </font> </TD>
+<TD ><font face='arial'>ME_RUN_PC4</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>Run Peripheral Configuration 4</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FDC094&nbsp; </font> </TD>
+<TD ><font face='arial'>ME_RUN_PC5</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>Run Peripheral Configuration 5</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FDC098&nbsp; </font> </TD>
+<TD ><font face='arial'>ME_RUN_PC6</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>Run Peripheral Configuration 6</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FDC09C&nbsp; </font> </TD>
+<TD ><font face='arial'>ME_RUN_PC7</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>Run Peripheral Configuration 7</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FDC0A0&nbsp; </font> </TD>
+<TD ><font face='arial'>ME_LP_PC0</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>Low-Power Peripheral Configuration 0</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FDC0A4&nbsp; </font> </TD>
+<TD ><font face='arial'>ME_LP_PC1</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>Low-Power Peripheral Configuration 1</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FDC0A8&nbsp; </font> </TD>
+<TD ><font face='arial'>ME_LP_PC2</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>Low-Power Peripheral Configuration 2</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FDC0AC&nbsp; </font> </TD>
+<TD ><font face='arial'>ME_LP_PC3</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>Low-Power Peripheral Configuration 3</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FDC0B0&nbsp; </font> </TD>
+<TD ><font face='arial'>ME_LP_PC4</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>Low-Power Peripheral Configuration 4</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FDC0B4&nbsp; </font> </TD>
+<TD ><font face='arial'>ME_LP_PC5</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>Low-Power Peripheral Configuration 5</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FDC0B8&nbsp; </font> </TD>
+<TD ><font face='arial'>ME_LP_PC6</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>Low-Power Peripheral Configuration 6</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FDC0BC&nbsp; </font> </TD>
+<TD ><font face='arial'>ME_LP_PC7</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>Low-Power Peripheral Configuration 7</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FDC0C4&nbsp; </font> </TD>
+<TD ><font face='arial'>ME_PCTL4</font> </TD>
+<TD ><font face='arial'>0x09</font> </TD>
+<TD ><font face='arial'>DSPI0 Control</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FDC0C5&nbsp; </font> </TD>
+<TD ><font face='arial'>ME_PCTL5</font> </TD>
+<TD ><font face='arial'>0x09</font> </TD>
+<TD ><font face='arial'>DSPI1 Control</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FDC0C6&nbsp; </font> </TD>
+<TD ><font face='arial'>ME_PCTL6</font> </TD>
+<TD ><font face='arial'>0x09</font> </TD>
+<TD ><font face='arial'>DSPI2 Control</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FDC0D0&nbsp; </font> </TD>
+<TD ><font face='arial'>ME_PCTL16</font> </TD>
+<TD ><font face='arial'>0x09</font> </TD>
+<TD ><font face='arial'>FlexCAN0 Control</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FDC0D1&nbsp; </font> </TD>
+<TD ><font face='arial'>ME_PCTL17</font> </TD>
+<TD ><font face='arial'>0x09</font> </TD>
+<TD ><font face='arial'>FlexCAN1 Control</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FDC0D2&nbsp; </font> </TD>
+<TD ><font face='arial'>ME_PCTL18</font> </TD>
+<TD ><font face='arial'>0x09</font> </TD>
+<TD ><font face='arial'>FlexCAN2 Control</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FDC0E0&nbsp; </font> </TD>
+<TD ><font face='arial'>ME_PCTL32</font> </TD>
+<TD ><font face='arial'>0x09</font> </TD>
+<TD ><font face='arial'>ADC0 Control</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FDC0EC&nbsp; </font> </TD>
+<TD ><font face='arial'>ME_PCTL44</font> </TD>
+<TD ><font face='arial'>0x09</font> </TD>
+<TD ><font face='arial'>I2C Control</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FDC0F0&nbsp; </font> </TD>
+<TD ><font face='arial'>ME_PCTL48</font> </TD>
+<TD ><font face='arial'>0x09</font> </TD>
+<TD ><font face='arial'>LIN_FLEX0 Control</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FDC0F1&nbsp; </font> </TD>
+<TD ><font face='arial'>ME_PCTL49</font> </TD>
+<TD ><font face='arial'>0x09</font> </TD>
+<TD ><font face='arial'>LIN_FLEX1 Control</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FDC0F2&nbsp; </font> </TD>
+<TD ><font face='arial'>ME_PCTL50</font> </TD>
+<TD ><font face='arial'>0x09</font> </TD>
+<TD ><font face='arial'>LIN_FLEX2 Control</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FDC0F3&nbsp; </font> </TD>
+<TD ><font face='arial'>ME_PCTL51</font> </TD>
+<TD ><font face='arial'>0x09</font> </TD>
+<TD ><font face='arial'>LIN_FLEX3 Control</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FDC0F9&nbsp; </font> </TD>
+<TD ><font face='arial'>ME_PCTL57</font> </TD>
+<TD ><font face='arial'>0x09</font> </TD>
+<TD ><font face='arial'>CTUL Control</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FDC0FC&nbsp; </font> </TD>
+<TD ><font face='arial'>ME_PCTL60</font> </TD>
+<TD ><font face='arial'>0x09</font> </TD>
+<TD ><font face='arial'>CANSampler Control</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FDC104&nbsp; </font> </TD>
+<TD ><font face='arial'>ME_PCTL68</font> </TD>
+<TD ><font face='arial'>0x09</font> </TD>
+<TD ><font face='arial'>SIUL Control</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FDC105&nbsp; </font> </TD>
+<TD ><font face='arial'>ME_PCTL69</font> </TD>
+<TD ><font face='arial'>0x09</font> </TD>
+<TD ><font face='arial'>WKPU Control</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FDC108&nbsp; </font> </TD>
+<TD ><font face='arial'>ME_PCTL72</font> </TD>
+<TD ><font face='arial'>0x09</font> </TD>
+<TD ><font face='arial'>eMIOS0 Control</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FDC109&nbsp; </font> </TD>
+<TD ><font face='arial'>ME_PCTL73</font> </TD>
+<TD ><font face='arial'>0x09</font> </TD>
+<TD ><font face='arial'>eMIOS1 Control</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FDC11B&nbsp; </font> </TD>
+<TD ><font face='arial'>ME_PCTL91</font> </TD>
+<TD ><font face='arial'>0x09</font> </TD>
+<TD ><font face='arial'>RTC/API Control</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FDC11C&nbsp; </font> </TD>
+<TD ><font face='arial'>ME_PCTL92</font> </TD>
+<TD ><font face='arial'>0x09</font> </TD>
+<TD ><font face='arial'>PIT Control</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FDC128&nbsp; </font> </TD>
+<TD ><font face='arial'>ME_PCTL104</font> </TD>
+<TD ><font face='arial'>0x09</font> </TD>
+<TD ><font face='arial'>CMU Control</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FE0100&nbsp; </font> </TD>
+<TD ><font face='arial'>CMU_0_CSR</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000006 </b></font></TD>
+<TD ><font face='arial'>CMU FMPLL0 Control Status Register</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FE0108&nbsp; </font> </TD>
+<TD ><font face='arial'>CMU_0_HFREFR_A</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000FFF </b></font></TD>
+<TD ><font face='arial'>FMPLL0 High Frequency Reference Register</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FE010C&nbsp; </font> </TD>
+<TD ><font face='arial'>CMU_0_LFREFR_A</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>FMPLL0 Low Frequency Reference Register</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FE0118&nbsp; </font> </TD>
+<TD ><font face='arial'>CMU_0_MDR</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>Measurement Duration Register</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FE8080&nbsp; </font> </TD>
+<TD ><font face='arial'>VCTL</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000001 </b></font></TD>
+<TD ><font face='arial'>Voltage Regulator Control Register</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FF0000&nbsp; </font> </TD>
+<TD ><font face='arial'>PITMCR</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000002 </b></font></TD>
+<TD ><font face='arial'>PIT Module Control Register</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FF0100&nbsp; </font> </TD>
+<TD ><font face='arial'>LDVAL0</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>Timer Load Value Register0</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FF0104&nbsp; </font> </TD>
+<TD ><font face='arial'>CVAL0</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>Current Timer Value Register 0</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FF0108&nbsp; </font> </TD>
+<TD ><font face='arial'>TCTRL0</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>Timer Control Register0</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FF010C&nbsp; </font> </TD>
+<TD ><font face='arial'>TFLG0</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>Timer Flag Register 0</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FF0110&nbsp; </font> </TD>
+<TD ><font face='arial'>LDVAL1</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>Timer Load Value Register1</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FF0114&nbsp; </font> </TD>
+<TD ><font face='arial'>CVAL1</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>Current Timer Value Register 1</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FF0118&nbsp; </font> </TD>
+<TD ><font face='arial'>TCTRL1</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>Timer Control Register1</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FF011C&nbsp; </font> </TD>
+<TD ><font face='arial'>TFLG1</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>Timer Flag Register 1</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FF0120&nbsp; </font> </TD>
+<TD ><font face='arial'>LDVAL2</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>Timer Load Value Register2</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FF0124&nbsp; </font> </TD>
+<TD ><font face='arial'>CVAL2</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>Current Timer Value Register 2</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FF0128&nbsp; </font> </TD>
+<TD ><font face='arial'>TCTRL2</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>Timer Control Register2</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FF012C&nbsp; </font> </TD>
+<TD ><font face='arial'>TFLG2</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>Timer Flag Register 2</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FF0130&nbsp; </font> </TD>
+<TD ><font face='arial'>LDVAL3</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>Timer Load Value Register3</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FF0134&nbsp; </font> </TD>
+<TD ><font face='arial'>CVAL3</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>Current Timer Value Register 3</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FF0138&nbsp; </font> </TD>
+<TD ><font face='arial'>TCTRL3</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>Timer Control Register3</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FF013C&nbsp; </font> </TD>
+<TD ><font face='arial'>TFLG3</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>Timer Flag Register 3</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FF0140&nbsp; </font> </TD>
+<TD ><font face='arial'>LDVAL4</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>Timer Load Value Register4</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FF0144&nbsp; </font> </TD>
+<TD ><font face='arial'>CVAL4</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>Current Timer Value Register 4</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FF0148&nbsp; </font> </TD>
+<TD ><font face='arial'>TCTRL4</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>Timer Control Register4</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FF014C&nbsp; </font> </TD>
+<TD ><font face='arial'>TFLG4</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>Timer Flag Register 4</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FF0150&nbsp; </font> </TD>
+<TD ><font face='arial'>LDVAL5</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>Timer Load Value Register5</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FF0154&nbsp; </font> </TD>
+<TD ><font face='arial'>CVAL5</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>Current Timer Value Register 5</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FF0158&nbsp; </font> </TD>
+<TD ><font face='arial'>TCTRL5</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>Timer Control Register5</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FF015C&nbsp; </font> </TD>
+<TD ><font face='arial'>TFLG5</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>Timer Flag Register 5</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FF0164&nbsp; </font> </TD>
+<TD ><font face='arial'>CVAL6</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>Current Timer Value Register 6</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FF016C&nbsp; </font> </TD>
+<TD ><font face='arial'>TFLG6</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>Timer Flag Register 6</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FF0174&nbsp; </font> </TD>
+<TD ><font face='arial'>CVAL7</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>Current Timer Value Register 7</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FF017C&nbsp; </font> </TD>
+<TD ><font face='arial'>TFLG7</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>Timer Flag Register 7</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FFF3C000&nbsp; </font> </TD>
+<TD ><font face='arial'>STM_CR</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>STM Control Register</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FFF3C004&nbsp; </font> </TD>
+<TD ><font face='arial'>STM_CNT</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>STM Counter Value</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FFF3C010&nbsp; </font> </TD>
+<TD ><font face='arial'>STM_CCR0</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>STM Channel 0 Control Register</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FFF3C014&nbsp; </font> </TD>
+<TD ><font face='arial'>STM_CIR0</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>STM Channel 0 Interrupt Register</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FFF3C018&nbsp; </font> </TD>
+<TD ><font face='arial'>STM_CMP0</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>STM Channel 0 Compare Register</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FFF3C020&nbsp; </font> </TD>
+<TD ><font face='arial'>STM_CCR1</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>STM Channel 1 Control Register</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FFF3C024&nbsp; </font> </TD>
+<TD ><font face='arial'>STM_CIR1</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>STM Channel 1 Interrupt Register</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FFF3C028&nbsp; </font> </TD>
+<TD ><font face='arial'>STM_CMP1</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>STM Channel 1 Compare Register</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FFF3C030&nbsp; </font> </TD>
+<TD ><font face='arial'>STM_CCR2</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>STM Channel 2 Control Register</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FFF3C034&nbsp; </font> </TD>
+<TD ><font face='arial'>STM_CIR2</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>STM Channel 2 Interrupt Register</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FFF3C038&nbsp; </font> </TD>
+<TD ><font face='arial'>STM_CMP2</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>STM Channel 2 Compare Register</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FFF3C040&nbsp; </font> </TD>
+<TD ><font face='arial'>STM_CCR3</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>STM Channel 3 Control Register</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FFF3C044&nbsp; </font> </TD>
+<TD ><font face='arial'>STM_CIR3</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>STM Channel 3 Interrupt Register</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FFF3C048&nbsp; </font> </TD>
+<TD ><font face='arial'>STM_CMP3</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>STM Channel 3 Compare Register</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FFF38000&nbsp; </font> </TD>
+<TD ><font face='arial'>SWT_CR</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x8000010B </b></font></TD>
+<TD ><font face='arial'>SWT Control Register</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FFF38004&nbsp; </font> </TD>
+<TD ><font face='arial'>SWT_IR</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>SWT Interrupt Register</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FFF38008&nbsp; </font> </TD>
+<TD ><font face='arial'>SWT_TO</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000500 </b></font></TD>
+<TD ><font face='arial'>SWT Time-out Register</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FFF3800C&nbsp; </font> </TD>
+<TD ><font face='arial'>SWT_WN</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>SWT Window Register</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FFF38010&nbsp; </font> </TD>
+<TD ><font face='arial'>SWT_SR</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>SWT Service Register</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>FFF38014&nbsp; </font> </TD>
+<TD ><font face='arial'>SWT_CO</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>SWT Counter Output Register</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FEC000&nbsp; </font> </TD>
+<TD ><font face='arial'>RTCSUPV</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x80000000 </b></font></TD>
+<TD ><font face='arial'>RTC Supervisor Control Register</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FEC004&nbsp; </font> </TD>
+<TD ><font face='arial'>RTCC</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>RTC Control Register</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FEC008&nbsp; </font> </TD>
+<TD ><font face='arial'>RTCS</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>RTC Status Register</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FEC00C&nbsp; </font> </TD>
+<TD ><font face='arial'>RTCCNT</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000000 </b></font></TD>
+<TD ><font face='arial'>RTC Counter Register</font> </TD>
+</TR>
+</TABLE>
+<center><h3><font face='Arial'>PCU Register</font></h3></center>
+
+<TABLE  cellpadding='2' border='2' bordercolor='#000000bgcolor= '#FFFFFF' ' width='100%' align = 'center' >
+<TR>
+<TD ><b><center><font face='arial' color='#000000' size='2'>Address</font></center></b>  </TD>
+<TD ><b><center><font face='arial' color='#000000' size='2'>Register</font></center></b>  </TD>
+<TD ><b><center><font face='arial' color='#000000' size='2'>Register Value</font></center></b>  </TD>
+<TD ><b><center><font face='arial' color='#000000' size='2'>Register Description</font></center></b>  </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FE8000&nbsp; </font> </TD>
+<TD ><font face='arial'>PCU_PCONF0</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x000025FF </b></font></TD>
+<TD ><font face='arial'>Power Domain #0 Configuration</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FE8004&nbsp; </font> </TD>
+<TD ><font face='arial'>PCU_PCONF1</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x000005FF </b></font></TD>
+<TD ><font face='arial'>Power Domain #1 Configuration</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FE8008&nbsp; </font> </TD>
+<TD ><font face='arial'>PCU_PCONF2</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x000005FF </b></font></TD>
+<TD ><font face='arial'>Power Domain #2 Configuration Register</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>C3FE8040&nbsp; </font> </TD>
+<TD ><font face='arial'>PCU_PSTAT</font> </TD>
+<TD ><font face='arial' color='#3300cc'><b>  0x00000007 </b></font></TD>
+<TD ><font face='arial'>Power Domain Status Register</font> </TD>
+</TR>
+</TABLE>
+<b><font face='arial' color='#3300cc' size='-1'>Color Denotes Reset Value</font></b>
+</BODY></HTML>

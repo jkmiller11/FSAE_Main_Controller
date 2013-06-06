@@ -1,0 +1,216 @@
+<HTML>
+<HEAD>
+<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'>
+<meta name='Author' content='Freescale Semiconductor'>
+</HEAD>
+<BODY>
+<b><center><font face='arial'  size='5' align=>Device Settings for: I2C_0 Config  </font></center></b> 
+<hr size='1' color='#3366FF'>
+<font face='arial'>I2C System Clock frequency is </font> <u><font face='arial' color='blue'>16</font></u><font face='arial'> MHz.</font> <font face='arial'>I2C Module is  </font> <u><font face='arial' color='blue'>Disabled</font></u><br><font face='arial'>The address of the Slave that wishes to communicate with controller using I2C is set to </font> <u><font face='arial' color='blue'>0</font></u><br><br><font face='arial'>I2C Baud rate, SDA Hold Value, SCL Start Hold Time and SCL Stop Hold time are</font> <br><font face='arial'>calculated using I2C Clock Rate  which is set to </font> <u><font face='arial' color='blue'>16.0</font></u><font face='arial'> MHz </font> <br><br><font face='arial'>SCL Divider, SDA Hold Value, SCL Start Hold Value and SCL Stop Hold value are </font> <br><font face='arial'>calculated using I2C Clock Rate. There values are shown in table shown below.</font> <br><br><TABLE  cellpadding='2' border='1' bordercolor='#000000' bgcolor= '#ccffcc' width='60%' align = 'center' >
+<TR>
+<TD ><b><center><font face='arial' color='#000000' size='2'>I2C Values</font></center></b><br><br>  </TD>
+</TR>
+</TABLE>
+<TABLE  cellpadding='2' border='1' bordercolor='#000000bgcolor= '#FFFFFF' ' width='60%' align = 'center' >
+<TR>
+<TD ><b><center><font face='arial' color='#000000' size='2'>ICR(Hex)</font></center></b><br><br>  </TD>
+<TD ><b><center><font face='arial' color='#000000' size='2'>SCL Divider</font></center></b><br><br>  </TD>
+<TD ><b><center><font face='arial' color='#000000' size='2'>SDA Hold Value</font></center></b><br><br>  </TD>
+<TD ><b><center><font face='arial' color='#000000' size='2'>SCL Hold Start Value</font></center></b><br><br>  </TD>
+<TD ><b><center><font face='arial' color='#000000' size='2'>SCL Hold Stop Value</font></center></b><br><br>  </TD>
+</TR>
+<TR>
+<TD >0x0</TD>
+<TD >20</TD>
+<TD >7</TD>
+<TD >6</TD>
+<TD >11</TD>
+</TR>
+</TABLE>
+<br><br><font face='arial'> Baud rate = Bus Clock Speed / (SCL Divider)</font> <br><font face='arial'> Baud rate = </font> <u><font face='arial' color='blue'>16.0</font></u>* 10 ^-6 /(<u><font face='arial' color='blue'>20</font></u>) = <u><font face='arial' color='blue'>0.800000 </font></u> MHz<br><br><font face='arial'>SDA hold Time = Bus Clock Period * SDA Hold Value</font> <br><font face='arial'>SDA hold Time = </font> <u><font face='arial' color='blue'>1/16.0</font></u>* 10 ^-6 *(<u><font face='arial' color='blue'>7</font></u>) = <u><font face='arial' color='blue'>0.437500</font></u> *10 ^-6 Seconds<br><br><font face='arial'>SCL Start Hold Time = Bus Clock Period * SCL Start hold value</font> <br><font face='arial'>SCL Start Hold Time = </font> <u><font face='arial' color='blue'>1/16.0</font></u>* 10 ^-6 *(<u><font face='arial' color='blue'>6</font></u>) = <u><font face='arial' color='blue'>0.375000</font></u> *10 ^-6 Seconds<br><br><font face='arial'>SCL Stop Hold time = Bus Clock Period * SCL Stop hold value</font> <br><font face='arial'>SCL Stop Hold time = </font> <u><font face='arial' color='blue'>1/16.0</font></u>* 10 ^-6 *(<u><font face='arial' color='blue'>11</font></u>) = <u><font face='arial' color='blue'>0.687500</font></u> *10 ^-6 Seconds<br><br><font face='arial'>Bus clock Multiplier </font> <u><font face='arial' color='blue'>1</font></u><font face='arial'>.I2C is in </font> <u><font face='arial' color='blue'>Slave</font></u><font face='arial'> and </font> <u><font face='arial' color='blue'>Receive</font></u><font face='arial'> mode. I-Bus Interrupt is </font> <u><font face='arial' color='blue'>Disabled.</font></u><br><font face='arial'> and Bus Idle Interrupt is </font> <u><font face='arial' color='blue'>Disabled. </font></u><font face='arial'>Data Acknowledge disable bit is set to </font> <u><font face='arial' color='blue'>Acknowledge. </font></u><br><font face='arial'>I2C Bus Master will </font> <u><font face='arial' color='blue'>Not Generate repeat start cycle.</font></u><br><br><b><font face='Arial'>Register</font></b><br><br><br><TABLE  cellpadding='2' border='2' bordercolor='#000000bgcolor= '#FFFFFF' ' width='100%' align = 'center' >
+<TR><TD colspan="1" bgcolor= "#CCFFCC"><b><center><h3>I2C_IBAD</h3></center></b></TD></TR><TR>
+<TD ><center><input type='image' SRC='Images/Register_Images/I2C/I2C_IBAD.jpg'></center></TD>
+</TR>
+</TABLE>
+<TABLE  cellpadding='2' border='2' bordercolor='#000000bgcolor= '#FFFFFF' ' width='100%' align = 'center' >
+<TR><TD colspan="2" bgcolor= "#FFFFFF"><center><font face='arial'>I2C Address Register</font> </center></TD></TR><TR>
+<TD ><font face='arial'><b><font face='Arial'>Address : Offset</font></b></font> </TD>
+<TD ><font face='arial'>0xFFE30000 : 0x0</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'><b><font face='Arial'>Value (Current : Reset)</font></b></font> </TD>
+<TD ><font face='arial'>0x00 : 0x00</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'><b><font face='Arial'>Description</font></b></font> </TD>
+<TD ><font face='arial'>I2C Address Register</font> </TD>
+</TR>
+</TABLE>
+<TABLE  cellpadding='2' border='2' bordercolor='#000000bgcolor= '#FFFFFF' ' width='100%' align = 'center' >
+<TR>
+<TD align='center' width='10%' ><b><center><font face='arial' color='#000000' size='2'>Bit</font></center></b>  </TD>
+<TD align='center' width='10%' ><b><center><font face='arial' color='#000000' size='2'>Field</font></center></b>  </TD>
+<TD align='center' width='20%' ><b><center><font face='arial' color='#000000' size='2'>Value</font></center></b>  </TD>
+<TD align='left' width='60%' ><b><center><font face='arial' color='#000000' size='2'>Description</font></center></b>  </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>0-6</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>ADR</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>0000000</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>The Slave address used by I2C is 0.</font> </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>7</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>-</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>0</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>Reserved</font> </TD>
+</TR>
+</TABLE>
+<br><br><TABLE  cellpadding='2' border='2' bordercolor='#000000bgcolor= '#FFFFFF' ' width='100%' align = 'center' >
+<TR><TD colspan="1" bgcolor= "#CCFFCC"><b><center><h3>I2C_IBFD</h3></center></b></TD></TR><TR>
+<TD ><center><input type='image' SRC='Images/Register_Images/I2C/I2C_IBFD.jpg'></center></TD>
+</TR>
+</TABLE>
+<TABLE  cellpadding='2' border='2' bordercolor='#000000bgcolor= '#FFFFFF' ' width='100%' align = 'center' >
+<TR><TD colspan="2" bgcolor= "#FFFFFF"><center><font face='arial'>I2C Frequency Divider Register</font> </center></TD></TR><TR>
+<TD ><font face='arial'><b><font face='Arial'>Address : Offset</font></b></font> </TD>
+<TD ><font face='arial'>0xFFE30001 : 0x1</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'><b><font face='Arial'>Value (Current : Reset)</font></b></font> </TD>
+<TD ><font face='arial'>0x00 : 0x00</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'><b><font face='Arial'>Description</font></b></font> </TD>
+<TD ><font face='arial'>I2C Frequency Divider Register</font> </TD>
+</TR>
+</TABLE>
+<TABLE  cellpadding='2' border='2' bordercolor='#000000bgcolor= '#FFFFFF' ' width='100%' align = 'center' >
+<TR>
+<TD align='center' width='10%' ><b><center><font face='arial' color='#000000' size='2'>Bit</font></center></b>  </TD>
+<TD align='center' width='10%' ><b><center><font face='arial' color='#000000' size='2'>Field</font></center></b>  </TD>
+<TD align='center' width='20%' ><b><center><font face='arial' color='#000000' size='2'>Value</font></center></b>  </TD>
+<TD align='left' width='60%' ><b><center><font face='arial' color='#000000' size='2'>Description</font></center></b>  </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>0-1</font> </TD>
+<TD align='center' width='10%' ><font face='arial'><font face='arial'>MUL</font> </font> </TD>
+<TD align='center' width='20%' ><font face='arial'>00</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>The multiplier factor mul is set to 1.</font> </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>2-7</font> </TD>
+<TD align='center' width='10%' ><font face='arial'><font face='arial'>ICR</font> </font> </TD>
+<TD align='center' width='20%' ><font face='arial'>000000</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>The prescalar used to prescale the Clock bus for bit rate selection is set to 0x0.</font> </TD>
+</TR>
+</TABLE>
+<br><br><TABLE  cellpadding='2' border='2' bordercolor='#000000bgcolor= '#FFFFFF' ' width='100%' align = 'center' >
+<TR><TD colspan="1" bgcolor= "#CCFFCC"><b><center><h3>I2C_IBCR</h3></center></b></TD></TR><TR>
+<TD ><center><input type='image' SRC='Images/Register_Images/I2C/I2C_IBCR.jpg'></center></TD>
+</TR>
+</TABLE>
+<TABLE  cellpadding='2' border='2' bordercolor='#000000bgcolor= '#FFFFFF' ' width='100%' align = 'center' >
+<TR><TD colspan="2" bgcolor= "#FFFFFF"><center><font face='arial'>I2C Control Register</font> </center></TD></TR><TR>
+<TD ><font face='arial'><b><font face='Arial'>Address : Offset</font></b></font> </TD>
+<TD ><font face='arial'>0xFFE30002 : 0x2</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'><b><font face='Arial'>Value (Current : Reset)</font></b></font> </TD>
+<TD ><font face='arial'>0x80 : 0x80</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'><b><font face='Arial'>Description</font></b></font> </TD>
+<TD ><font face='arial'>I2C Control Register</font> </TD>
+</TR>
+</TABLE>
+<TABLE  cellpadding='2' border='2' bordercolor='#000000bgcolor= '#FFFFFF' ' width='100%' align = 'center' >
+<TR>
+<TD align='center' width='10%' ><b><center><font face='arial' color='#000000' size='2'>Bit</font></center></b>  </TD>
+<TD align='center' width='10%' ><b><center><font face='arial' color='#000000' size='2'>Field</font></center></b>  </TD>
+<TD align='center' width='20%' ><b><center><font face='arial' color='#000000' size='2'>Value</font></center></b>  </TD>
+<TD align='left' width='60%' ><b><center><font face='arial' color='#000000' size='2'>Description</font></center></b>  </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>0</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>MDIS</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>1</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>The I2C Module is Disabled.</font> </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>1</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>IBIE</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>0</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>Interrupts from the I2C bus module are Disabled</font> </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>2</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>MS/SL</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>0</font> </TD>
+<TD align='left' width='60%' ><font face='arial'> Master/Slave mode selected as  Slave</font> </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>3</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>Tx/Rx</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>0</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>The I2C Bus is selected to Receive data.</font> </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>4</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>NOACK</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>0</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>An Acknowledge signal will be sent out to the bus at the 9th clock bit after receiving one byte of data.</font> </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>5</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>RSTA</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>0</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>Repeat start is Disabled.</font> </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>6-7</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>-</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>00</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>Reserved</font> </TD>
+</TR>
+</TABLE>
+<br><br><TABLE  cellpadding='2' border='2' bordercolor='#000000bgcolor= '#FFFFFF' ' width='100%' align = 'center' >
+<TR><TD colspan="1" bgcolor= "#CCFFCC"><b><center><h3>I2C_IBIC</h3></center></b></TD></TR><TR>
+<TD ><center><input type='image' SRC='Images/Register_Images/I2C/I2C_IBIC.jpg'></center></TD>
+</TR>
+</TABLE>
+<TABLE  cellpadding='2' border='2' bordercolor='#000000bgcolor= '#FFFFFF' ' width='100%' align = 'center' >
+<TR><TD colspan="2" bgcolor= "#FFFFFF"><center><font face='arial'>I2C Interrupt Config Register</font> </center></TD></TR><TR>
+<TD ><font face='arial'><b><font face='Arial'>Address : Offset</font></b></font> </TD>
+<TD ><font face='arial'>0xFFE30005 : 0x5</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'><b><font face='Arial'>Value (Current : Reset)</font></b></font> </TD>
+<TD ><font face='arial'>0x00 : 0x00</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'><b><font face='Arial'>Description</font></b></font> </TD>
+<TD ><font face='arial'>I2C Interrupt Config Register</font> </TD>
+</TR>
+</TABLE>
+<TABLE  cellpadding='2' border='2' bordercolor='#000000bgcolor= '#FFFFFF' ' width='100%' align = 'center' >
+<TR>
+<TD align='center' width='10%' ><b><center><font face='arial' color='#000000' size='2'>Bit</font></center></b>  </TD>
+<TD align='center' width='10%' ><b><center><font face='arial' color='#000000' size='2'>Field</font></center></b>  </TD>
+<TD align='center' width='20%' ><b><center><font face='arial' color='#000000' size='2'>Value</font></center></b>  </TD>
+<TD align='left' width='60%' ><b><center><font face='arial' color='#000000' size='2'>Description</font></center></b>  </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>0</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>BIIE</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>0</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>Bus idle interrupts is Disabled.</font> </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>1-7</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>-</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>0000000</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>Reserved</font> </TD>
+</TR>
+</TABLE>
+<br><br><br><br></BODY></HTML>

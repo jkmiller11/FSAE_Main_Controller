@@ -1,0 +1,135 @@
+<HTML>
+<HEAD>
+<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'>
+<meta name='Author' content='Freescale Semiconductor'>
+</HEAD>
+<BODY>
+<b><center><font face='arial'  size='5' align=>Device Settings for: SWT  </font></center></b> 
+<hr size='1' color='#3366FF'>
+<font face='arial'><h3><font face='Arial'>SWT Configuration</font></h3><br>SWT is <u><font face='arial' color='blue'>enabled.</font></u> with SWT Time-out register, SWT_TO is running on  Oscillator Clock IRC 128 <font face='arial'>KHz.</font>  SWT is configured such that <u><font face='arial' color='blue'> counter is stopped in debug mode </font></u> and<u><font face='arial' color='blue'> continues to run in STOP</font></u> mode. SWT action on timeout is <u><font face='arial' color='blue'> reset on a time-out </font></u> and operating in In Regular mode (non window mode) the servicing sequence should be executed any time before the <u><font face='arial' color='blue'> Regular Mode (not window mode). </font></u><u><font face='arial' color='blue'>1280 clock cycles (</font></u><u><font face='arial' color='blue'>10 ms)</font></u> is completed.<br><br>Reset on Invalid Access is <u><font face='arial' color='blue'>Enabled.</font></u><br>Soft Lock is <u><font face='arial' color='blue'>Disabled</font></u> and Hard Lock is <u><font face='arial' color='blue'>Disabled.</font></u><br>Watchdog Timeout Range: 10 ms to 33554.43 sec<br>Watchdog Resolution: 0.008 ms<br><br><font face='arial'>Watchdog Timeout = (Watchdog Timeout Value / 128) ms</font> <br><font face='arial'>Watchdog Window Time = (Window Value / 128) ms</font> <br><font face='arial'>Watchdog Resolution = (1/128) ms</font> <br><font face='arial'>Window Time % = 100 * (Window Value / Watchdog Timeout Value)</font> <br><br><br><TABLE  cellpadding='2' border='2' bordercolor='#000000bgcolor= '#FFFFFF' ' width='100%' align = 'center' >
+<TR><TD colspan="1" bgcolor= "#CCFFCC"><b><center><h3>SWT_CR</h3></center></b></TD></TR><TR>
+<TD ><center><input type='image' SRC='Images/Register_Images/SWT/SWT_CR.jpg'></center></TD>
+</TR>
+</TABLE>
+<TABLE  cellpadding='2' border='2' bordercolor='#000000bgcolor= '#FFFFFF' ' width='100%' align = 'center' >
+<TR><TD colspan="2" bgcolor= "#FFFFFF"><center><font face='arial'>SWT Control Register</font> </center></TD></TR><TR>
+<TD ><font face='arial'><b><font face='Arial'>Address : Offset</font></b></font> </TD>
+<TD ><font face='arial'>0xFFF38000 : 0x0</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'><b><font face='Arial'>Value (Current : Reset)</font></b></font> </TD>
+<TD ><font face='arial'>0x8000010B : 0x8000010B</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'><b><font face='Arial'>Description</font></b></font> </TD>
+<TD ><font face='arial'>SWT Control Register</font> </TD>
+</TR>
+</TABLE>
+<TABLE  cellpadding='2' border='2' bordercolor='#000000bgcolor= '#FFFFFF' ' width='100%' align = 'center' >
+<TR>
+<TD align='center' width='10%' ><b><center><font face='arial' color='#000000' size='2'>Bit</font></center></b>  </TD>
+<TD align='center' width='10%' ><b><center><font face='arial' color='#000000' size='2'>Field</font></center></b>  </TD>
+<TD align='center' width='20%' ><b><center><font face='arial' color='#000000' size='2'>Value</font></center></b>  </TD>
+<TD align='left' width='60%' ><b><center><font face='arial' color='#000000' size='2'>Description</font></center></b>  </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>0-7</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>MAPn</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>10000000</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>Master Access Protection for Master n</font> </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>8-22</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>-</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>000000000000000</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>Reserved</font> </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>23</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>RIA</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>1</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>SWT's Reset on Invalid Access is Enabled</font> </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>24</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>WND</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>0</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>SWT's Window Mode is Disabled</font> </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>25</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>ITR</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>0</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>SWT's Interrupt Then Reset is Disabled</font> </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>26</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>HLK</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>0</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>SWT's Hard Lock is Disabled</font> </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>27</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>SLK</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>0</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>SWT's Soft Lock is Disabled</font> </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>28</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>CSL</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>1</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>SWT's Time-Out register operates on Oscillator Clock</font> </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>29</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>STP</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>0</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>SWT's Stop Mode Control is Disabled</font> </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>30</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>FRZ</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>1</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>SWT's Debug Mode Control is Enabled</font> </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>31</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>WEN</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>1</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>Software Watchdog is Enabled</font> </TD>
+</TR>
+</TABLE>
+<br><br><br><TABLE  cellpadding='2' border='2' bordercolor='#000000bgcolor= '#FFFFFF' ' width='100%' align = 'center' >
+<TR><TD colspan="1" bgcolor= "#CCFFCC"><b><center><h3>SWT_TO</h3></center></b></TD></TR><TR>
+<TD ><center><input type='image' SRC='Images/Register_Images/SWT/SWT_TO.jpg'></center></TD>
+</TR>
+</TABLE>
+<TABLE  cellpadding='2' border='2' bordercolor='#000000bgcolor= '#FFFFFF' ' width='100%' align = 'center' >
+<TR><TD colspan="2" bgcolor= "#FFFFFF"><center><font face='arial'>SWT Time-out Register</font> </center></TD></TR><TR>
+<TD ><font face='arial'><b><font face='Arial'>Address : Offset</font></b></font> </TD>
+<TD ><font face='arial'>0xFFF38008 : 0x8</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'><b><font face='Arial'>Value (Current : Reset)</font></b></font> </TD>
+<TD ><font face='arial'>0x00000500 : 0x00000500</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'><b><font face='Arial'>Description</font></b></font> </TD>
+<TD ><font face='arial'>SWT Time-out Register</font> </TD>
+</TR>
+</TABLE>
+<TABLE  cellpadding='2' border='2' bordercolor='#000000bgcolor= '#FFFFFF' ' width='100%' align = 'center' >
+<TR>
+<TD align='center' width='10%' ><b><center><font face='arial' color='#000000' size='2'>Bit</font></center></b>  </TD>
+<TD align='center' width='10%' ><b><center><font face='arial' color='#000000' size='2'>Field</font></center></b>  </TD>
+<TD align='center' width='20%' ><b><center><font face='arial' color='#000000' size='2'>Value</font></center></b>  </TD>
+<TD align='left' width='60%' ><b><center><font face='arial' color='#000000' size='2'>Description</font></center></b>  </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>0-31</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>WTO</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>00000000000000000000010100000000</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>Software Watchdog Timer in clock cycles is 0x500</font> </TD>
+</TR>
+</TABLE>
+<br></font> </BODY></HTML>

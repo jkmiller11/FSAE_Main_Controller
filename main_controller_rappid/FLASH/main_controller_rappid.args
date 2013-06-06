@@ -1,0 +1,43 @@
+"./Project_Settings/Startup_Code/crt0_s.obj"
+"./Project_Settings/Startup_Code/MPC5604B_Startup_c.obj"
+"./Sources/sysclk_init_c.obj"
+"./Sources/sys_init_c.obj"
+"./Sources/siu_init_c.obj"
+"./Sources/romcopy_c.obj"
+"./Sources/rgm_init_c.obj"
+"./Sources/rchw_init_c.obj"
+"./Sources/pcu_init_c.obj"
+"./Sources/msr_init_c.obj"
+"./Sources/main_c.obj"
+"./Sources/flexcan_init_c.obj"
+"./Sources/flash_init_c.obj"
+"./Sources/dspi_var_c.obj"
+"./Sources/dspi_init_c.obj"
+"./Sources/adc_trigger_init_c.obj"
+"./Sources/adc_init_c.obj"
+-sym dwarf-2
+-sym full
+-msgstyle parseable
+-proc zen
+-big
+-fp soft
+-model absolute
+-abi eabi
+-sdata 8
+-sdata2 8
+-nostdlib
+-lcf
+"$(ProjDirPath)/Project_Settings/Linker_Files/default560B.lcf"
+-m __start
+-L"$(MCUToolsBaseDirEnv)/PA_Support/ewl/lib"
+-char unsigned
+-application
+-heapsize 32
+-stacksize 32
+-map
+-listclosure
+-mapunused
+-genbinary none
+-srec
+-sreclength 26
+-sreceol dos

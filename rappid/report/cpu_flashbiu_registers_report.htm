@@ -1,0 +1,337 @@
+<HTML>
+<HEAD>
+<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'>
+<meta name='Author' content='Freescale Semiconductor'>
+</HEAD>
+<BODY>
+<b><center><font face='arial'  size='5' align=>Device Settings for: System Setup  </font></center></b> 
+<hr size='1' color='#3366FF'>
+<font face='arial'><h3><font face='Arial'>FlashBIU</font></h3><br><h3><font face='Arial'>Bank Configuration</font></h3>Flash Bank 0: Code is configured with <u><font face='arial' color='blue'>3</font></u> cycle Read wait state and <u><font face='arial' color='blue'>3</font></u> cycle Write wait state. <u><font face='arial' color='blue'>3</font></u>  hold Cycles are required between flash array access requests.  Buffer is <u><font face='arial' color='blue'>Enabled.</font></u> Data Prefetch is<u><font face='arial' color='blue'> Disable.</font></u> Instruction Prefetch is<u><font face='arial' color='blue'> Enable. </font></u><br> The Prefetch limit is <u><font face='arial' color='blue'>set to Prefetch on miss or hit</font></u>. The Page Buffer Configuration is <u><font face='arial' color='blue'>set to 3 instruction + 1 data</font></u>.<br><br>Flash Bank 1: Data  is configured with <u><font face='arial' color='blue'>3</font></u> cycle Read wait state and <u><font face='arial' color='blue'>3</font></u> cycle Write wait state. <u><font face='arial' color='blue'>3</font></u>  hold Cycles are required between flash array access requests. Buffer is <u><font face='arial' color='blue'>Enabled.</font></u><br><br><br><br><TABLE  cellpadding='2' border='2' bordercolor='#000000bgcolor= '#FFFFFF' ' width='100%' align = 'center' >
+<TR><TD colspan="9" bgcolor= "#CCFFCC"><b><center><h3>Bank configuration</h3></center></b></TD></TR><TR>
+<TD ><b><center><font face='arial' color='#000000' size='2'>Flash Bank</font></center></b>  </TD>
+<TD ><b><center><font face='arial' color='#000000' size='2'><html>Address Pipeline<BR>control</html></font></center></b>  </TD>
+<TD ><b><center><font face='arial' color='#000000' size='2'><html>Write Wait<BR>state control</html></font></center></b>  </TD>
+<TD ><b><center><font face='arial' color='#000000' size='2'><html>Read Wait<BR>state control</html></font></center></b>  </TD>
+<TD ><b><center><font face='arial' color='#000000' size='2'>Data Prefetch</font></center></b>  </TD>
+<TD ><b><center><font face='arial' color='#000000' size='2'>Instruction Prefetch</font></center></b>  </TD>
+<TD ><b><center><font face='arial' color='#000000' size='2'>Prefetch Limit</font></center></b>  </TD>
+<TD ><b><center><font face='arial' color='#000000' size='2'>Buffer</font></center></b>  </TD>
+<TD ><b><center><font face='arial' color='#000000' size='2'><html>Page Buffer<BR>Configuration</html></font></center></b>  </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>0:Code</font> </TD>
+<TD ><font face='arial'>3</font> </TD>
+<TD ><font face='arial'>3</font> </TD>
+<TD ><font face='arial'>3</font> </TD>
+<TD ><font face='arial'>Disable</font> </TD>
+<TD ><font face='arial'>Enable</font> </TD>
+<TD ><font face='arial'>Prefetch on miss or hit</font> </TD>
+<TD ><font face='arial'>Enable</font> </TD>
+<TD ><font face='arial'>3 instruction + 1 data</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>1:Data</font> </TD>
+<TD ><font face='arial'>3</font> </TD>
+<TD ><font face='arial'>3</font> </TD>
+<TD ><font face='arial'>3</font> </TD>
+<TD ><font face='arial'></font> </TD>
+<TD ><font face='arial'></font> </TD>
+<TD ><font face='arial'></font> </TD>
+<TD ><font face='arial'>Enable</font> </TD>
+<TD ><font face='arial'></font> </TD>
+</TR>
+</TABLE>
+<br><br><TABLE  cellpadding='2' border='2' bordercolor='#000000bgcolor= '#FFFFFF' ' width='100%' align = 'center' >
+<TR><TD colspan="4" bgcolor= "#CCFFCC"><b><center><h3>Master Control</h3></center></b></TD></TR><TR>
+<TD ><b><center><font face='arial' color='#000000' size='2'>MASTER</font></center></b>  </TD>
+<TD ><b><center><font face='arial' color='#000000' size='2'>Prefetch Enable</font></center></b>  </TD>
+<TD ><b><center><font face='arial' color='#000000' size='2'>Read</font></center></b>  </TD>
+<TD ><b><center><font face='arial' color='#000000' size='2'>Write</font></center></b>  </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>Z0 Core</font> </TD>
+<TD ><font face='arial'>Disable</font> </TD>
+<TD ><font face='arial'>Yes</font> </TD>
+<TD ><font face='arial'>Yes</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'>Nexus</font> </TD>
+<TD ><font face='arial'>Disable</font> </TD>
+<TD ><font face='arial'>Yes</font> </TD>
+<TD ><font face='arial'>Yes</font> </TD>
+</TR>
+</TABLE>
+<br><br><TABLE  cellpadding='2' border='2' bordercolor='#000000bgcolor= '#FFFFFF' ' width='100%' align = 'center' >
+<TR><TD colspan="1" bgcolor= "#CCFFCC"><b><center><h3>FLASHBIU_PFCR0</h3></center></b></TD></TR><TR>
+<TD ><center><input type='image' SRC='Images/Register_Images/FLASH/FLASH_PFCR0.jpg'></center></TD>
+</TR>
+</TABLE>
+<TABLE  cellpadding='2' border='2' bordercolor='#000000bgcolor= '#FFFFFF' ' width='100%' align = 'center' >
+<TR><TD colspan="2" bgcolor= "#FFFFFF"><center><font face='arial'>Platform Flash Configuration Register 0</font> </center></TD></TR><TR>
+<TD ><font face='arial'><b><font face='Arial'>Address : Offset</font></b></font> </TD>
+<TD ><font face='arial'>0xC3F8801C : 0x1C</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'><b><font face='Arial'>Value (Current : Reset)</font></b></font> </TD>
+<TD ><font face='arial'>0x18C780ED : 0x18C780ED</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'><b><font face='Arial'>Description</font></b></font> </TD>
+<TD ><font face='arial'>Platform Flash Configuration Register 0</font> </TD>
+</TR>
+</TABLE>
+<TABLE  cellpadding='2' border='2' bordercolor='#000000bgcolor= '#FFFFFF' ' width='100%' align = 'center' >
+<TR>
+<TD align='center' width='10%' ><b><center><font face='arial' color='#000000' size='2'>Bit</font></center></b>  </TD>
+<TD align='center' width='10%' ><b><center><font face='arial' color='#000000' size='2'>Field</font></center></b>  </TD>
+<TD align='center' width='20%' ><b><center><font face='arial' color='#000000' size='2'>Value</font></center></b>  </TD>
+<TD align='left' width='60%' ><b><center><font face='arial' color='#000000' size='2'>Description</font></center></b>  </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>0-4</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>B0_P0_APC</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>00011</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>Access request require 3 hold cycle</font> </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>5-9</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>B0_P0_WWSC</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>00011</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>3 Write Wait states</font> </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>10-14</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>B0_P0_RWSC</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>00011</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>3 Read Wait states</font> </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>15-16</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>BK0_RWWC</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>11</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>Bank0 Read-While-Write Control field defines the controller response to flash reads while the array is busy with a program (write) or erase operation.</font> </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>17-18</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>B0_P1_BCFG</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>00</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>Bank0 Port 1 Page Buffer Configuration field controls the configuration of the four page buffers in the PFLASH controller.</font> </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>19</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>B0_P1_DPFE</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>0</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>Bank0, Port 1 Data Prefetch Enable field enables or disables prefetching initiated by a data read access.</font> </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>20</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>B0_P1_IPFE</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>0</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>Bank0, Port 1 Instruction Prefetch Enable field enables or disables prefetching initiated by an instruction fetch read access.</font> </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>21-22</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>B0_P1_PFLM</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>00</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>Bank0, Port 1 Prefetch Limit field controls the prefetch algorithm used by the PFLASH controller. This field defines the prefetch behavior.</font> </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>23</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>B0_P1_BFE</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>0</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>Bank0, Port 1 Buffer Enable bit enables or disables page buffer read hits.</font> </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>24</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>BK0_RWWC</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>1</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>Bank0 Read-While-Write Control field defines the controller response to flash reads while the array is busy with a program (write) or erase operation.</font> </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>25-26</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>B0_P0_BCFG</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>11</font> </TD>
+<TD align='left' width='60%' ><font face='arial'> 00:- All four buffers are available for any flash access,i.e. there is no partitioning of the buffers based on access type.<br>10:- The buffers are partitioned into two groups with buffers 0 and 1 allocated for instruction fetches and buffers 2 and 3 for data accesses.<br>11:- The buffers are partitioned into two groups with buffers 0,1,2 allocated for instruction fetches and buffer 3 for data accesses.</font> </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>27</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>B0_P0_DPFE</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>0</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>disabled Prefetching by any data read access.</font> </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>28</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>B0_P0_IPFE</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>1</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>enabled Prefetching by any instruction read access</font> </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>29-30</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>B0_P0_PFLM</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>10</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>the referenced line is prefetched on a buffer miss, or the next sequential line is prefetched on a buffer hit (if not already present), i.e., prefetch on miss or hit</font> </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>31</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>B0_P0_BFE</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>1</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>The line read buffers are enabled to satisfy read requests on hits. Buffer valid bits may be set when the buffers are successfully filled.</font> </TD>
+</TR>
+</TABLE>
+<br><br><TABLE  cellpadding='2' border='2' bordercolor='#000000bgcolor= '#FFFFFF' ' width='100%' align = 'center' >
+<TR><TD colspan="1" bgcolor= "#CCFFCC"><b><center><h3>FLASHBIU_PFCR1</h3></center></b></TD></TR><TR>
+<TD ><center><input type='image' SRC='Images/Register_Images/FLASH/FLASH_PFCR1.jpg'></center></TD>
+</TR>
+</TABLE>
+<TABLE  cellpadding='2' border='2' bordercolor='#000000bgcolor= '#FFFFFF' ' width='100%' align = 'center' >
+<TR><TD colspan="2" bgcolor= "#FFFFFF"><center><font face='arial'>Platform Flash Configuration Register 1</font> </center></TD></TR><TR>
+<TD ><font face='arial'><b><font face='Arial'>Address : Offset</font></b></font> </TD>
+<TD ><font face='arial'>0xC3F88020 : 0x20</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'><b><font face='Arial'>Value (Current : Reset)</font></b></font> </TD>
+<TD ><font face='arial'>0x18C78081 : 0x18C78081</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'><b><font face='Arial'>Description</font></b></font> </TD>
+<TD ><font face='arial'>Platform Flash Configuration Register 1</font> </TD>
+</TR>
+</TABLE>
+<TABLE  cellpadding='2' border='2' bordercolor='#000000bgcolor= '#FFFFFF' ' width='100%' align = 'center' >
+<TR>
+<TD align='center' width='10%' ><b><center><font face='arial' color='#000000' size='2'>Bit</font></center></b>  </TD>
+<TD align='center' width='10%' ><b><center><font face='arial' color='#000000' size='2'>Field</font></center></b>  </TD>
+<TD align='center' width='20%' ><b><center><font face='arial' color='#000000' size='2'>Value</font></center></b>  </TD>
+<TD align='left' width='60%' ><b><center><font face='arial' color='#000000' size='2'>Description</font></center></b>  </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>0-4</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>BK1_APC</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>00011</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>Access request require 3 hold cycle</font> </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>5-9</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>BK1_WWSC</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>00011</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>3 Write Wait states</font> </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>10-14</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>BK1_RWSC</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>00011</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>3 Read Wait states</font> </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>15-16</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>BK1_RWWC</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>11</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>Bank1 Read-While-Write Control field defines the controller response to flash reads while the array is busy with a program (write) or erase operation.</font> </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>17-22</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>-</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>000000</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>Reserved.</font> </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>23</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>B1_P1_BFE</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>0</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>Bank1 Port 1 Buffer Enable enables or disables read hits from the 128-bit holding register. </font> </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>24</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>BK1_RWWC</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>1</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>Bank1 Read-While-Write Control field defines the controller response to flash reads while the array is busy with a program (write) or erase operation.</font> </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>25-30</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>-</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>000000</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>Reserved.</font> </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>31</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>BK1_P0_BFE</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>1</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>The line read buffers are enabled to satisfy read requests on hits. Buffer valid bits may be set when the buffers are successfully filled.</font> </TD>
+</TR>
+</TABLE>
+<br><br><TABLE  cellpadding='2' border='2' bordercolor='#000000bgcolor= '#FFFFFF' ' width='100%' align = 'center' >
+<TR><TD colspan="1" bgcolor= "#CCFFCC"><b><center><h3>FLASHBIU_PFAPR</h3></center></b></TD></TR><TR>
+<TD ><center><input type='image' SRC='Images/Register_Images/FLASH/FLASH_PFAPR.jpg'></center></TD>
+</TR>
+</TABLE>
+<TABLE  cellpadding='2' border='2' bordercolor='#000000bgcolor= '#FFFFFF' ' width='100%' align = 'center' >
+<TR><TD colspan="2" bgcolor= "#FFFFFF"><center><font face='arial'>Platform Flash Access Protection Register</font> </center></TD></TR><TR>
+<TD ><font face='arial'><b><font face='Arial'>Address : Offset</font></b></font> </TD>
+<TD ><font face='arial'>0xC3F88024 : 0x24</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'><b><font face='Arial'>Value (Current : Reset)</font></b></font> </TD>
+<TD ><font face='arial'>0xFFFFFFFF : 0xFFFFFFFF</font> </TD>
+</TR>
+<TR>
+<TD ><font face='arial'><b><font face='Arial'>Description</font></b></font> </TD>
+<TD ><font face='arial'>Platform Flash Access Protection Register</font> </TD>
+</TR>
+</TABLE>
+<TABLE  cellpadding='2' border='2' bordercolor='#000000bgcolor= '#FFFFFF' ' width='100%' align = 'center' >
+<TR>
+<TD align='center' width='10%' ><b><center><font face='arial' color='#000000' size='2'>Bit</font></center></b>  </TD>
+<TD align='center' width='10%' ><b><center><font face='arial' color='#000000' size='2'>Field</font></center></b>  </TD>
+<TD align='center' width='20%' ><b><center><font face='arial' color='#000000' size='2'>Value</font></center></b>  </TD>
+<TD align='left' width='60%' ><b><center><font face='arial' color='#000000' size='2'>Description</font></center></b>  </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>0-5</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>-</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>111111</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>Reserved</font> </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>6-7</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>ARBM</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>11</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>Arbitration Mode. This field controls the arbitration for PFLASH controllers supporting 2 AHB ports.</font> </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>8-13</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>-</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>111111</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>Reserved</font> </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>14</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>M1PFD</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>1</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>No prefetching may be triggered by this master</font> </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>15</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>M0PFD</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>1</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>No prefetching may be triggered by this master</font> </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>16-27</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>-</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>11</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>Reserved</font> </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>28-29</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>M1AP</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>11</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>Both read and write accesses may be performed by this master</font> </TD>
+</TR>
+<TR>
+<TD align='center' width='10%' ><font face='arial'>30-31</font> </TD>
+<TD align='center' width='10%' ><font face='arial'>M0AP</font> </TD>
+<TD align='center' width='20%' ><font face='arial'>11</font> </TD>
+<TD align='left' width='60%' ><font face='arial'>Both read and write accesses may be performed by this master</font> </TD>
+</TR>
+</TABLE>
+Note - There are only 2 masters so the bits related to other masters are shown reserved </font> </BODY></HTML>
